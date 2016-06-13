@@ -48,5 +48,18 @@
     
     [self.navigationController pushViewController:tableViewController animated:YES];
 }
+- (IBAction)removeNote:(id)sender {
+    // Удаление нужно осуществлять, только если вызвано оно с экрана редактирования:
+    // в противном случае заметки и так пока нет, ничего делать не надо
+    if ( -1 != self.index ) {
+        [ self.dataCtrl removeNoteByIndex: self.index ];
+    }
+    
+    // Возвращаемся на экран со списком заметок
+    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ViewController * tableViewController = (ViewController *)[storyboard  instantiateViewControllerWithIdentifier:@"NotesTableViewController"];
+    
+    [self.navigationController pushViewController:tableViewController animated:YES];
+}
 
 @end

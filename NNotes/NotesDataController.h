@@ -20,6 +20,7 @@
 - (void) updateNoteAtIndex: (NSInteger) index WithNote: (Note *) note;
 - (NSInteger) countNotes;
 - (Note *) selectNoteByIndex: (NSInteger) index;
+- (void) removeNoteByIndex: (NSInteger) index;
 - (NSMutableArray *) selectNotes;
 
 @end

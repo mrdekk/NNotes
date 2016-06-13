@@ -144,5 +144,29 @@
     return note;
 }
 
+- (void) removeNoteByIndex:(NSInteger)index {
+    // Удаляем заметку
+    
+    // По индексу получаем из БД хранимую заметку
+    NSFetchRequest * request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"DbNote" inManagedObjectContext: self.managedObjectContext]];
+    [request setFetchOffset: index ];
+    [request setFetchLimit: 1];
+    
+    NSError *error = nil;
+    NSArray * results = [[self managedObjectContext] executeFetchRequest:request error:&error];
+    if (!results || [ results count ] == 0 ) {
+        NSLog(@"Error fetching note: %@\n%@", [error localizedDescription], [error userInfo]);
+        return;
+    }
+    
+    // В БД есть нужная заметка, удаляем ее
+    DbNote * selected = (DbNote *) [results objectAtIndex: 0];
+    [self.managedObjectContext deleteObject: selected];
+    if ([[self managedObjectContext] save:&error] == NO) {
+        NSAssert(NO, @"Не удалось удалить заметку: %@\n%@", [error localizedDescription], [error userInfo]);
+    }
+}
+
 @end
 

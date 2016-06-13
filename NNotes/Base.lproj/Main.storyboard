@@ -298,7 +298,11 @@
                                 <rect key="frame" x="79" y="529" width="600" height="44"/>
                                 <animations/>
                                 <items>
-                                    <barButtonItem systemItem="trash" id="Eva-aC-70V"/>
+                                    <barButtonItem systemItem="trash" id="Eva-aC-70V">
+                                        <connections>
+                                            <action selector="removeNote:" destination="WGN-CK-xml" id="m6D-Ov-Cex"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Готово" width="92" id="l3S-Ot-ZLo">
                                         <connections>
                                             <action selector="addOrEditNote:" destination="WGN-CK-xml" id="AGJ-ta-eGN"/>
