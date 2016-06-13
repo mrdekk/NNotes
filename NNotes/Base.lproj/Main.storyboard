@@ -71,13 +71,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7f-T1-YZW">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7f-T1-YZW">
                                 <rect key="frame" x="14" y="65" width="64" height="63"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhl-Sm-eh1">
-                                <rect key="frame" x="14" y="139" width="64" height="63"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </button>
@@ -85,26 +80,52 @@
                                 <rect key="frame" x="14" y="204" width="64" height="63"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="M5h-9M-QRj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1p-mm-NCg">
+                                <rect key="frame" x="14" y="204" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="138" width="64" height="63"/>
+                                </variation>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="rfr-jp-wnm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5B-PV-BhA">
-                                <rect key="frame" x="14" y="270" width="64" height="63"/>
+                                <rect key="frame" x="14" y="269" width="64" height="63"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="52c-81-Vax"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFo-lq-3Ye">
-                                <rect key="frame" x="14" y="335" width="64" height="63"/>
+                                <rect key="frame" x="14" y="334" width="64" height="63"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="FPq-NM-iWs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3o-bi-eOS">
-                                <rect key="frame" x="14" y="401" width="64" height="63"/>
+                                <rect key="frame" x="14" y="399" width="64" height="63"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="Xhz-It-pAF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04I-E4-Pvq">
-                                <rect key="frame" x="14" y="466" width="64" height="63"/>
+                                <rect key="frame" x="14" y="464" width="64" height="63"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="sHC-oz-Prh"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Текст заметки" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EkH-AW-FSb">
                                 <rect key="frame" x="93" y="139" width="469" height="322"/>
@@ -113,15 +134,44 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46S-5w-4oV">
+                                <rect key="frame" x="14" y="65" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5F-yn-xll">
+                                <rect key="frame" x="14" y="204" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="hl9-vm-Q3c"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Текст заметки" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PLY-fL-ULu">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="86" y="138" width="276" height="324"/>
+                                </variation>
+                            </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Заголовок" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bG1-g0-L0I">
                                 <rect key="frame" x="86" y="64" width="476" height="64"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="86" y="64" width="476" height="64"/>
+                                </variation>
                             </textView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sG4-Jl-I84">
-                                <rect key="frame" x="79" y="529" width="600" height="44"/>
+                                <rect key="frame" x="86" y="553" width="600" height="44"/>
                                 <animations/>
                                 <items>
                                     <barButtonItem systemItem="trash" id="Eva-aC-70V">
@@ -135,21 +185,52 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="80" y="548" width="600" height="44"/>
+                                </variation>
                             </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhl-Sm-eh1">
+                                <rect key="frame" x="14" y="139" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="9jI-Jl-dPD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODN-1u-uRd">
+                                <rect key="frame" x="14" y="536" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="urk-tm-fjZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="W7f-T1-YZW"/>
+                                <exclude reference="H1p-mm-NCg"/>
+                                <exclude reference="R5F-yn-xll"/>
+                                <exclude reference="PLY-fL-ULu"/>
+                            </mask>
+                        </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <exclude reference="W7f-T1-YZW"/>
-                                <exclude reference="Rhl-Sm-eh1"/>
+                                <include reference="H1p-mm-NCg"/>
                                 <exclude reference="EkH-AW-FSb"/>
+                                <exclude reference="R5F-yn-xll"/>
+                                <include reference="PLY-fL-ULu"/>
+                                <exclude reference="Rhl-Sm-eh1"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="colorMark" destination="46S-5w-4oV" id="JMJ-jZ-mfz"/>
                         <outlet property="noteTitle" destination="bG1-g0-L0I" id="Wyy-jy-3G0"/>
-                        <outlet property="text" destination="EkH-AW-FSb" id="6dc-Dc-8rM"/>
+                        <outlet property="text" destination="PLY-fL-ULu" id="1EJ-fx-Yqc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFo-9m-5Lg" userLabel="First Responder" sceneMemberID="firstResponder"/>

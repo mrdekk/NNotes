@@ -12,8 +12,10 @@
 
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * text;
-@property (nonatomic, retain) NSNumber * color;
+@property (nonatomic, retain) NSNumber * colorR;
+@property (nonatomic, retain) NSNumber * colorG;
+@property (nonatomic, retain) NSNumber * colorB;
 
-- initWithTitle: (NSString *) title Text: (NSString *) text andColor: (NSNumber *) color;
+- initWithTitle: (NSString *) title Text: (NSString *) text ColorR: (NSNumber *) colorR ColorG: (NSNumber *) colorG andColorB: (NSNumber *) colorB;
 
 @end

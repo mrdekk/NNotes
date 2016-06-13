@@ -11,6 +11,7 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *noteTitle;
 @property (weak, nonatomic) IBOutlet UITextView * text;
+@property (weak, nonatomic) IBOutlet UILabel *colorMark;
 
 @end
 
@@ -25,6 +26,10 @@
         Note * note = [self.dataCtrl selectNoteByIndex: self.index];
         self.noteTitle.text = note.title;
         self.text.text = note.text;
+        
+        UIColor * clr = [[UIColor alloc] initWithRed: [note.colorR doubleValue] green: [note.colorG doubleValue] blue: [note.colorB doubleValue] alpha: [[[NSNumber alloc] initWithDouble: 1] doubleValue]];
+        self.colorMark.backgroundColor = clr;
+        self.noteTitle.backgroundColor = clr;
     }
 }
 
@@ -33,7 +38,11 @@
 }
 
 - (IBAction)addOrEditNote:(id)sender {
-    Note * note = [[Note alloc] initWithTitle: self.noteTitle.text Text: self.text.text andColor: [[NSNumber alloc] initWithInt: 1]];
+    double clrR, clrG, clrB, alpha;
+    UIColor * clr = self.noteTitle.backgroundColor;
+    [ clr getRed: &clrR green: &clrG blue: &clrB alpha: &alpha];
+    
+    Note * note = [[Note alloc] initWithTitle: self.noteTitle.text Text: self.text.text ColorR: [[NSNumber alloc] initWithDouble: clrR ] ColorG: [[NSNumber alloc] initWithDouble: clrG ] andColorB: [[NSNumber alloc] initWithDouble: clrB ] ];
     
     // Если на экране добавления заметки, вызываем метод создания новой заметки;
     // Если на экране редактирования заметки, вызываем метод обновления существующих данных
@@ -48,6 +57,7 @@
     
     [self.navigationController pushViewController:tableViewController animated:YES];
 }
+
 - (IBAction)removeNote:(id)sender {
     // Удаление нужно осуществлять, только если вызвано оно с экрана редактирования:
     // в противном случае заметки и так пока нет, ничего делать не надо
@@ -60,6 +70,13 @@
     ViewController * tableViewController = (ViewController *)[storyboard  instantiateViewControllerWithIdentifier:@"NotesTableViewController"];
     
     [self.navigationController pushViewController:tableViewController animated:YES];
+}
+
+- (IBAction)changeColor:(id)sender {
+    // Устанавливаем новый цвет заметки
+    UIButton * button = (UIButton *) sender;
+    self.noteTitle.backgroundColor = button.backgroundColor;
+    self.colorMark.backgroundColor = button.backgroundColor;
 }
 
 @end

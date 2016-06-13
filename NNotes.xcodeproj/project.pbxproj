@@ -20,8 +20,8 @@
 		7D5427B31D0D75F500002073 /* DbNotesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D5427B11D0D75F500002073 /* DbNotesModel.xcdatamodeld */; };
 		7D5427BB1D0D786B00002073 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D5427BA1D0D786B00002073 /* CoreData.framework */; };
 		7D5427BE1D0D79A600002073 /* NotesDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5427BD1D0D79A600002073 /* NotesDataController.m */; };
-		7DAED5C31D0ED14400CC2872 /* DbNote+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAED5C01D0ED14400CC2872 /* DbNote+CoreDataProperties.m */; };
-		7DAED5C41D0ED14400CC2872 /* DbNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAED5C21D0ED14400CC2872 /* DbNote.m */; };
+		7DAED5C91D0F00C500CC2872 /* DbNote+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAED5C61D0F00C400CC2872 /* DbNote+CoreDataProperties.m */; };
+		7DAED5CA1D0F00C500CC2872 /* DbNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DAED5C81D0F00C500CC2872 /* DbNote.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,10 +66,10 @@
 		7D5427BA1D0D786B00002073 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		7D5427BC1D0D79A600002073 /* NotesDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesDataController.h; sourceTree = "<group>"; };
 		7D5427BD1D0D79A600002073 /* NotesDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesDataController.m; sourceTree = "<group>"; };
-		7DAED5BF1D0ED14400CC2872 /* DbNote+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DbNote+CoreDataProperties.h"; sourceTree = "<group>"; };
-		7DAED5C01D0ED14400CC2872 /* DbNote+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DbNote+CoreDataProperties.m"; sourceTree = "<group>"; };
-		7DAED5C11D0ED14400CC2872 /* DbNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DbNote.h; sourceTree = "<group>"; };
-		7DAED5C21D0ED14400CC2872 /* DbNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DbNote.m; sourceTree = "<group>"; };
+		7DAED5C51D0F00C400CC2872 /* DbNote+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DbNote+CoreDataProperties.h"; sourceTree = "<group>"; };
+		7DAED5C61D0F00C400CC2872 /* DbNote+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DbNote+CoreDataProperties.m"; sourceTree = "<group>"; };
+		7DAED5C71D0F00C500CC2872 /* DbNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DbNote.h; sourceTree = "<group>"; };
+		7DAED5C81D0F00C500CC2872 /* DbNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DbNote.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,10 +138,10 @@
 				7D5427B11D0D75F500002073 /* DbNotesModel.xcdatamodeld */,
 				7D5427BC1D0D79A600002073 /* NotesDataController.h */,
 				7D5427BD1D0D79A600002073 /* NotesDataController.m */,
-				7DAED5BF1D0ED14400CC2872 /* DbNote+CoreDataProperties.h */,
-				7DAED5C01D0ED14400CC2872 /* DbNote+CoreDataProperties.m */,
-				7DAED5C11D0ED14400CC2872 /* DbNote.h */,
-				7DAED5C21D0ED14400CC2872 /* DbNote.m */,
+				7DAED5C51D0F00C400CC2872 /* DbNote+CoreDataProperties.h */,
+				7DAED5C61D0F00C400CC2872 /* DbNote+CoreDataProperties.m */,
+				7DAED5C71D0F00C500CC2872 /* DbNote.h */,
+				7DAED5C81D0F00C500CC2872 /* DbNote.m */,
 			);
 			path = NNotes;
 			sourceTree = "<group>";
@@ -307,10 +307,10 @@
 				7D5427A11D0D628400002073 /* NotesTableViewController.m in Sources */,
 				7D54276B1D0D5D4600002073 /* AppDelegate.m in Sources */,
 				7D5427681D0D5D4600002073 /* main.m in Sources */,
-				7DAED5C31D0ED14400CC2872 /* DbNote+CoreDataProperties.m in Sources */,
+				7DAED5C91D0F00C500CC2872 /* DbNote+CoreDataProperties.m in Sources */,
 				7D5427B31D0D75F500002073 /* DbNotesModel.xcdatamodeld in Sources */,
 				7D5427BE1D0D79A600002073 /* NotesDataController.m in Sources */,
-				7DAED5C41D0ED14400CC2872 /* DbNote.m in Sources */,
+				7DAED5CA1D0F00C500CC2872 /* DbNote.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

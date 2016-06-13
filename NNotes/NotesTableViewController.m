@@ -38,13 +38,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotesListCell" forIndexPath:indexPath];
     
-    // Конфигурируем ячейку
-    [[cell textLabel] setText: [self getNoteTitleForRowAtIndexPath: indexPath]];
+    // Запрашиваем следующую по порядку заметку
+    Note * note = [self.dataCtrl selectNoteByIndex: indexPath.row ];
+    UIColor * clr = [[UIColor alloc] initWithRed: [note.colorR doubleValue] green: [note.colorG doubleValue] blue: [note.colorB doubleValue] alpha: [[[NSNumber alloc] initWithDouble: 1] doubleValue]];
+    
+    // И конфигурируем ячейку в соответствии с полученными данными
+    cell.textLabel.text = note.title;
+    cell.backgroundColor = clr;
     return cell;
-}
-
--(NSString *) getNoteTitleForRowAtIndexPath: (NSIndexPath *) indexPath {
-    return [[self.dataCtrl selectNoteByIndex: indexPath.row ] title];
 }
 
 #pragma mark - Navigation

@@ -54,7 +54,9 @@
     DbNote * crnote = [NSEntityDescription insertNewObjectForEntityForName:@"DbNote" inManagedObjectContext:[self managedObjectContext]];
     crnote.text = note.text;
     crnote.title = note.title;
-    crnote.color = note.color;
+    crnote.colorR = note.colorR;
+    crnote.colorG = note.colorG;
+    crnote.colorB = note.colorB;
     
     NSError *error = nil;
     if ([[self managedObjectContext] save:&error] == NO) {
@@ -80,7 +82,9 @@
     DbNote * selected = (DbNote *) [results objectAtIndex: 0];
     selected.title = note.title;
     selected.text = note.text;
-    selected.color = note.color;
+    selected.colorR = note.colorR;
+    selected.colorG = note.colorG;
+    selected.colorB = note.colorB;
     
     if ([[self managedObjectContext] save:&error] == NO) {
         NSAssert(NO, @"Не удалось сохранить заметку: %@\n%@", [error localizedDescription], [error userInfo]);
@@ -102,7 +106,7 @@
     
     // Преобразуем заметки уровня модели БД в заметки Web-модели
     for ( DbNote * obj in results) {
-        [notes addObject: [[Note alloc] initWithTitle: obj.title Text: obj.text andColor: (NSNumber *) 0]];
+        [notes addObject: [[Note alloc] initWithTitle: obj.title Text: obj.text ColorR: obj.colorR ColorG: obj.colorG andColorB: obj.colorB]];
     }
     return notes;
 }
@@ -140,7 +144,9 @@
     DbNote * selected = (DbNote *) [results objectAtIndex: 0];
     note.title = selected.title;
     note.text = selected.text;
-    note.color = selected.color;
+    note.colorR = selected.colorR;
+    note.colorG = selected.colorG;
+    note.colorB = selected.colorB;
     return note;
 }
 
