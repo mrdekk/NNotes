@@ -71,68 +71,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7f-T1-YZW">
-                                <rect key="frame" x="14" y="65" width="64" height="63"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pV-PV-VS7">
                                 <rect key="frame" x="14" y="204" width="64" height="63"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="187" width="64" height="63"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="209" width="64" height="63"/>
+                                </variation>
                                 <connections>
                                     <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="M5h-9M-QRj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1p-mm-NCg">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Atv-c8-uf1">
                                 <rect key="frame" x="14" y="204" width="64" height="63"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="14" y="138" width="64" height="63"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="594" width="64" height="63"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="616" width="64" height="46"/>
                                 </variation>
                                 <connections>
-                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="rfr-jp-wnm"/>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="LOI-ec-Fx1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5B-PV-BhA">
                                 <rect key="frame" x="14" y="269" width="64" height="63"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="252" width="64" height="63"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="275" width="64" height="65"/>
+                                </variation>
                                 <connections>
                                     <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="52c-81-Vax"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFo-lq-3Ye">
-                                <rect key="frame" x="14" y="334" width="64" height="63"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BiL-my-Qxq">
+                                <rect key="frame" x="14" y="269" width="64" height="63"/>
                                 <animations/>
-                                <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="659" width="64" height="63"/>
+                                </variation>
                                 <connections>
-                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="FPq-NM-iWs"/>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="xZE-Ag-5j6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3o-bi-eOS">
-                                <rect key="frame" x="14" y="399" width="64" height="63"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnH-SE-7aS">
+                                <rect key="frame" x="14" y="269" width="64" height="63"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="660" width="64" height="63"/>
+                                </variation>
                                 <connections>
-                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="Xhz-It-pAF"/>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="qh5-od-nHi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04I-E4-Pvq">
                                 <rect key="frame" x="14" y="464" width="64" height="63"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="475" width="64" height="69"/>
+                                </variation>
                                 <connections>
                                     <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="sHC-oz-Prh"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Текст заметки" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EkH-AW-FSb">
-                                <rect key="frame" x="93" y="139" width="469" height="322"/>
+                                <rect key="frame" x="93" y="139" width="487" height="388"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="93" y="139" width="687" height="322"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="93" y="139" width="655" height="584"/>
+                                </variation>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46S-5w-4oV">
                                 <rect key="frame" x="14" y="65" width="64" height="63"/>
@@ -141,6 +166,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="65" width="64" height="49"/>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5F-yn-xll">
                                 <rect key="frame" x="14" y="204" width="64" height="63"/>
@@ -159,9 +187,15 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="86" y="138" width="276" height="324"/>
                                 </variation>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="86" y="122" width="303" height="226"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="86" y="143" width="276" height="324"/>
+                                </variation>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Заголовок" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bG1-g0-L0I">
-                                <rect key="frame" x="86" y="64" width="476" height="64"/>
+                                <rect key="frame" x="86" y="64" width="494" height="64"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -169,9 +203,207 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="86" y="64" width="476" height="64"/>
                                 </variation>
+                                <variation key="widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="86" y="64" width="694" height="64"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="86" y="64" width="314" height="50"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="86" y="64" width="714" height="64"/>
+                                </variation>
                             </textView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sG4-Jl-I84">
-                                <rect key="frame" x="86" y="553" width="600" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODN-1u-uRd">
+                                <rect key="frame" x="14" y="529" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="529" width="64" height="63"/>
+                                </variation>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="529" width="64" height="63"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="547" width="64" height="67"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="529" width="64" height="63"/>
+                                </variation>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="urk-tm-fjZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7f-T1-YZW">
+                                <rect key="frame" x="14" y="65" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFo-lq-3Ye">
+                                <rect key="frame" x="14" y="334" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="43"/>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="317" width="64" height="63"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="343" width="64" height="64"/>
+                                </variation>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="FPq-NM-iWs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3o-bi-eOS">
+                                <rect key="frame" x="14" y="399" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="399" width="64" height="63"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="382" width="64" height="63"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="410" width="64" height="63"/>
+                                </variation>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="Xhz-It-pAF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txa-RW-RRW">
+                                <rect key="frame" x="14" y="204" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="595" width="64" height="63"/>
+                                </variation>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="8B5-Ug-mYD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1p-mm-NCg">
+                                <rect key="frame" x="14" y="204" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="✘"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="138" width="64" height="63"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="122" width="64" height="63"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="143" width="64" height="63"/>
+                                </variation>
+                                <connections>
+                                    <action selector="removeNote:" destination="WGN-CK-xml" eventType="touchUpInside" id="twE-TI-MiV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ft-ZT-qRU">
+                                <rect key="frame" x="14" y="334" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="725" width="64" height="63"/>
+                                </variation>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="c7D-tj-G3G"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1le-rm-Ium">
+                                <rect key="frame" x="14" y="334" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="724" width="64" height="63"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="725" width="64" height="63"/>
+                                </variation>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="9fv-NO-dzP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhl-Sm-eh1">
+                                <rect key="frame" x="14" y="139" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                <state key="normal" title="✘"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="139" width="64" height="63"/>
+                                </variation>
+                                <connections>
+                                    <action selector="removeNote:" destination="WGN-CK-xml" eventType="touchUpInside" id="qQd-bg-tYm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VW-tF-xhJ">
+                                <rect key="frame" x="14" y="64" width="64" height="63"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" title="✔︎"/>
+                                <connections>
+                                    <action selector="addOrEditNote:" destination="WGN-CK-xml" eventType="touchUpInside" id="aAn-7S-1B7"/>
+                                </connections>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="52u-y8-yaV">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <navigationItem id="Nm6-yK-gEn"/>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KPJ-Ln-bzY">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" title="✔︎"/>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="14" y="65" width="64" height="63"/>
+                                </variation>
+                                <connections>
+                                    <action selector="addOrEditNote:" destination="WGN-CK-xml" eventType="touchUpInside" id="ddp-xl-U0V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RwO-Xp-zDG">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Save"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgf-sC-YPc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wA2-Yd-eza">
+                                <rect key="frame" x="533" y="64" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p52-4S-NjM">
+                                <rect key="frame" x="14" y="72" width="64" height="44"/>
+                                <animations/>
+                                <items>
+                                    <barButtonItem title="Item" systemItem="trash" id="i55-H4-Efe"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hqp-FF-CrZ">
+                                <rect key="frame" x="533" y="72" width="64" height="44"/>
+                                <animations/>
+                                <items>
+                                    <barButtonItem title="Item" systemItem="trash" id="wFm-Lc-wnA"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBI-Yl-jh8">
+                                <rect key="frame" x="14" y="74" width="64" height="44"/>
+                                <animations/>
+                                <items>
+                                    <barButtonItem title="Save" id="xEU-w5-4Bp"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sG4-Jl-I84">
+                                <rect key="frame" x="86" y="529" width="180" height="44"/>
                                 <animations/>
                                 <items>
                                     <barButtonItem systemItem="trash" id="Eva-aC-70V">
@@ -185,45 +417,70 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="80" y="548" width="600" height="44"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="83" y="748" width="600" height="44"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="78" y="350" width="600" height="44"/>
                                 </variation>
                             </toolbar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhl-Sm-eh1">
-                                <rect key="frame" x="14" y="139" width="64" height="63"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="9jI-Jl-dPD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODN-1u-uRd">
-                                <rect key="frame" x="14" y="536" width="64" height="63"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="urk-tm-fjZ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="W7f-T1-YZW"/>
-                                <exclude reference="H1p-mm-NCg"/>
+                                <exclude reference="Atv-c8-uf1"/>
+                                <exclude reference="BiL-my-Qxq"/>
+                                <exclude reference="AnH-SE-7aS"/>
                                 <exclude reference="R5F-yn-xll"/>
                                 <exclude reference="PLY-fL-ULu"/>
+                                <exclude reference="W7f-T1-YZW"/>
+                                <exclude reference="txa-RW-RRW"/>
+                                <exclude reference="H1p-mm-NCg"/>
+                                <exclude reference="7Ft-ZT-qRU"/>
+                                <exclude reference="1le-rm-Ium"/>
+                                <exclude reference="52u-y8-yaV"/>
+                                <exclude reference="KPJ-Ln-bzY"/>
+                                <exclude reference="RwO-Xp-zDG"/>
+                                <exclude reference="Fgf-sC-YPc"/>
+                                <exclude reference="wA2-Yd-eza"/>
+                                <exclude reference="p52-4S-NjM"/>
+                                <exclude reference="Hqp-FF-CrZ"/>
+                                <exclude reference="qBI-Yl-jh8"/>
+                                <exclude reference="sG4-Jl-I84"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="Atv-c8-uf1"/>
+                                <include reference="BiL-my-Qxq"/>
+                                <include reference="1le-rm-Ium"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <exclude reference="W7f-T1-YZW"/>
-                                <include reference="H1p-mm-NCg"/>
                                 <exclude reference="EkH-AW-FSb"/>
                                 <exclude reference="R5F-yn-xll"/>
                                 <include reference="PLY-fL-ULu"/>
+                                <exclude reference="W7f-T1-YZW"/>
+                                <include reference="H1p-mm-NCg"/>
                                 <exclude reference="Rhl-Sm-eh1"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="BiL-my-Qxq"/>
+                                <exclude reference="1le-rm-Ium"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="AnH-SE-7aS"/>
+                                <include reference="txa-RW-RRW"/>
+                                <include reference="7Ft-ZT-qRU"/>
+                                <include reference="KPJ-Ln-bzY"/>
+                                <exclude reference="RwO-Xp-zDG"/>
+                                <exclude reference="Fgf-sC-YPc"/>
                             </mask>
                         </variation>
                     </view>
@@ -235,7 +492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFo-9m-5Lg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1023" y="445"/>
+            <point key="canvasLocation" x="1023" y="444"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="itg-bF-4S6">
