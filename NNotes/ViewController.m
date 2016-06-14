@@ -38,7 +38,12 @@
 }
 
 - (IBAction)addOrEditNote:(id)sender {
-    double clrR, clrG, clrB, alpha;
+    #if (CGFLOAT_IS_DOUBLE == 1)
+        double clrR, clrG, clrB, alpha;
+    #else
+        float clrR, clrG, clrB, alpha;
+    #endif
+    
     UIColor * clr = self.noteTitle.backgroundColor;
     [ clr getRed: &clrR green: &clrG blue: &clrB alpha: &alpha];
     

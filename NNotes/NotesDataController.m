@@ -41,6 +41,8 @@
     NSURL *documentsURL = [[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     NSURL *storeURL = [documentsURL URLByAppendingPathComponent:@"Notes.sqlite"];
     
+    NSLog(@"%@", storeURL);
+    
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
         NSError *error = nil;
         NSPersistentStoreCoordinator *psc = [[self managedObjectContext] persistentStoreCoordinator];
