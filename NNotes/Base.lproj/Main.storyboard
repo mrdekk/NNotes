@@ -76,13 +76,13 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="8" y="64" width="63" height="63"/>
+                                    <rect key="frame" x="3" y="64" width="63" height="63"/>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="151" y="64" width="64" height="63"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="7" y="64" width="64" height="63"/>
+                                    <rect key="frame" x="3" y="64" width="64" height="63"/>
                                 </variation>
                                 <connections>
                                     <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="M5h-9M-QRj"/>
@@ -92,9 +92,6 @@
                                 <rect key="frame" x="14" y="204" width="64" height="63"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="14" y="594" width="64" height="63"/>
-                                </variation>
                                 <connections>
                                     <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="LOI-ec-Fx1"/>
                                 </connections>
@@ -104,7 +101,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="79" y="64" width="64" height="63"/>
+                                    <rect key="frame" x="69" y="64" width="64" height="63"/>
                                 </variation>
                                 <variation key="widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="89" y="64" width="64" height="63"/>
@@ -113,7 +110,7 @@
                                     <rect key="frame" x="7" y="64" width="64" height="63"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="79" y="64" width="64" height="63"/>
+                                    <rect key="frame" x="69" y="64" width="64" height="63"/>
                                 </variation>
                                 <connections>
                                     <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="52c-81-Vax"/>
@@ -138,13 +135,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="223" y="64" width="64" height="63"/>
+                                    <rect key="frame" x="203" y="64" width="64" height="63"/>
                                 </variation>
                                 <variation key="widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="587" y="65" width="64" height="63"/>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="223" y="64" width="64" height="63"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="201" y="64" width="64" height="64"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="587" y="65" width="64" height="63"/>
@@ -164,7 +164,7 @@
                                 <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="43"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="151" y="64" width="64" height="63"/>
+                                    <rect key="frame" x="136" y="64" width="64" height="63"/>
                                 </variation>
                                 <variation key="widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="160" y="64" width="64" height="63"/>
@@ -173,7 +173,7 @@
                                     <rect key="frame" x="79" y="64" width="64" height="63"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="151" y="64" width="64" height="64"/>
+                                    <rect key="frame" x="135" y="64" width="64" height="64"/>
                                 </variation>
                                 <connections>
                                     <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="FPq-NM-iWs"/>
@@ -209,101 +209,15 @@
                                     <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="sHC-oz-Prh"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Текст заметки" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PLY-fL-ULu">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="8" y="206" width="351" height="332"/>
-                                </variation>
-                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="7" y="189" width="352" height="183"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="7" y="207" width="352" height="529"/>
-                                </variation>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODN-1u-uRd">
-                                <rect key="frame" x="382" y="64" width="64" height="63"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="14" y="529" width="64" height="63"/>
-                                </variation>
-                                <connections>
-                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="urk-tm-fjZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0f4-eD-INF">
-                                <rect key="frame" x="19" y="64" width="64" height="63"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="374" y="64" width="64" height="63"/>
-                                </variation>
-                                <connections>
-                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="bcg-M6-NNE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTy-DZ-psH">
-                                <rect key="frame" x="166" y="64" width="64" height="63"/>
-                                <animations/>
-                                <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="43"/>
-                                <variation key="widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="515" y="65" width="64" height="63"/>
-                                </variation>
-                                <connections>
-                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="nhH-qI-VYk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7f-T1-YZW">
-                                <rect key="frame" x="14" y="65" width="64" height="63"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Текст заметки" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EkH-AW-FSb">
-                                <rect key="frame" x="19" y="212" width="498" height="298"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <variation key="heightClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="19" y="212" width="571" height="168"/>
-                                </variation>
-                                <variation key="widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="19" y="207" width="704" height="310"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="207" width="703" height="430"/>
-                                </variation>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhl-Sm-eh1">
-                                <rect key="frame" x="453" y="64" width="64" height="63"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="49"/>
-                                <state key="normal" title="✘"/>
-                                <variation key="widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="659" y="65" width="64" height="63"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="659" y="64" width="64" height="63"/>
-                                </variation>
-                                <connections>
-                                    <action selector="removeNote:" destination="WGN-CK-xml" eventType="touchUpInside" id="qQd-bg-tYm"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Заголовок" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bG1-g0-L0I">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Заголовок" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bG1-g0-L0I">
                                 <rect key="frame" x="19" y="135" width="498" height="64"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="8" y="134" width="351" height="64"/>
+                                    <rect key="frame" x="3" y="134" width="330" height="64"/>
                                 </variation>
                                 <variation key="widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="20" y="135" width="703" height="64"/>
@@ -312,19 +226,17 @@
                                     <rect key="frame" x="7" y="131" width="352" height="50"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="7" y="136" width="352" height="64"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                    <rect key="frame" x="3" y="131" width="327" height="64"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="19" y="130" width="704" height="64"/>
+                                    <rect key="frame" x="19" y="135" width="704" height="64"/>
                                 </variation>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BiL-my-Qxq">
                                 <rect key="frame" x="14" y="269" width="64" height="63"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="14" y="659" width="64" height="63"/>
-                                </variation>
                                 <connections>
                                     <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="xZE-Ag-5j6"/>
                                 </connections>
@@ -337,13 +249,48 @@
                                     <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="qh5-od-nHi"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1p-mm-NCg">
+                                <rect key="frame" x="14" y="204" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="✘"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="269" y="64" width="64" height="63"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="295" y="64" width="64" height="63"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="266" y="64" width="64" height="64"/>
+                                </variation>
+                                <connections>
+                                    <action selector="removeNote:" destination="WGN-CK-xml" eventType="touchUpInside" id="twE-TI-MiV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ft-ZT-qRU">
+                                <rect key="frame" x="14" y="334" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="c7D-tj-G3G"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1le-rm-Ium">
+                                <rect key="frame" x="14" y="334" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="9fv-NO-dzP"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VW-tF-xhJ">
                                 <rect key="frame" x="381" y="64" width="64" height="63"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <state key="normal" title="✔︎"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="223" y="64" width="64" height="63"/>
+                                    <rect key="frame" x="203" y="64" width="64" height="63"/>
                                 </variation>
                                 <variation key="widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="587" y="65" width="64" height="63"/>
@@ -352,7 +299,7 @@
                                     <rect key="frame" x="223" y="64" width="64" height="63"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="223" y="64" width="64" height="63"/>
+                                    <rect key="frame" x="201" y="64" width="64" height="63"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="587" y="64" width="64" height="63"/>
@@ -428,48 +375,94 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="83" y="748" width="600" height="44"/>
-                                </variation>
                             </toolbar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1p-mm-NCg">
-                                <rect key="frame" x="14" y="204" width="64" height="63"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Текст заметки" translatesAutoresizingMaskIntoConstraints="NO" id="PLY-fL-ULu">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="✘"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="295" y="64" width="64" height="63"/>
+                                    <rect key="frame" x="3" y="198" width="330" height="332"/>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="295" y="64" width="64" height="63"/>
+                                    <rect key="frame" x="7" y="181" width="352" height="183"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="295" y="65" width="64" height="63"/>
+                                    <rect key="frame" x="3" y="194" width="327" height="401"/>
+                                </variation>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODN-1u-uRd">
+                                <rect key="frame" x="382" y="64" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="urk-tm-fjZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0f4-eD-INF">
+                                <rect key="frame" x="19" y="64" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="374" y="64" width="64" height="63"/>
                                 </variation>
                                 <connections>
-                                    <action selector="removeNote:" destination="WGN-CK-xml" eventType="touchUpInside" id="twE-TI-MiV"/>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="bcg-M6-NNE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ft-ZT-qRU">
-                                <rect key="frame" x="14" y="334" width="64" height="63"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTy-DZ-psH">
+                                <rect key="frame" x="166" y="64" width="64" height="63"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="c7D-tj-G3G"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1le-rm-Ium">
-                                <rect key="frame" x="14" y="334" width="64" height="63"/>
-                                <animations/>
-                                <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="14" y="724" width="64" height="63"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="43"/>
+                                <variation key="widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="515" y="65" width="64" height="63"/>
                                 </variation>
                                 <connections>
-                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="9fv-NO-dzP"/>
+                                    <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="nhH-qI-VYk"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7f-T1-YZW">
+                                <rect key="frame" x="14" y="65" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhl-Sm-eh1">
+                                <rect key="frame" x="453" y="64" width="64" height="63"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                <state key="normal" title="✘"/>
+                                <variation key="widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="659" y="65" width="64" height="63"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="659" y="64" width="64" height="64"/>
+                                </variation>
+                                <connections>
+                                    <action selector="removeNote:" destination="WGN-CK-xml" eventType="touchUpInside" id="qQd-bg-tYm"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Текст заметки" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EkH-AW-FSb">
+                                <rect key="frame" x="19" y="199" width="498" height="298"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="heightClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="19" y="199" width="498" height="168"/>
+                                </variation>
+                                <variation key="widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="199" width="703" height="310"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="199" width="703" height="181"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="19" y="199" width="704" height="430"/>
+                                </variation>
+                            </textView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -479,13 +472,11 @@
                                 <exclude reference="9t0-Fp-1lk"/>
                                 <exclude reference="R5F-yn-xll"/>
                                 <exclude reference="txa-RW-RRW"/>
-                                <exclude reference="PLY-fL-ULu"/>
-                                <exclude reference="ODN-1u-uRd"/>
-                                <exclude reference="0f4-eD-INF"/>
-                                <exclude reference="YTy-DZ-psH"/>
-                                <exclude reference="W7f-T1-YZW"/>
                                 <exclude reference="BiL-my-Qxq"/>
                                 <exclude reference="AnH-SE-7aS"/>
+                                <exclude reference="H1p-mm-NCg"/>
+                                <exclude reference="7Ft-ZT-qRU"/>
+                                <exclude reference="1le-rm-Ium"/>
                                 <exclude reference="52u-y8-yaV"/>
                                 <exclude reference="KPJ-Ln-bzY"/>
                                 <exclude reference="RwO-Xp-zDG"/>
@@ -495,16 +486,18 @@
                                 <exclude reference="Hqp-FF-CrZ"/>
                                 <exclude reference="qBI-Yl-jh8"/>
                                 <exclude reference="sG4-Jl-I84"/>
-                                <exclude reference="H1p-mm-NCg"/>
-                                <exclude reference="7Ft-ZT-qRU"/>
-                                <exclude reference="1le-rm-Ium"/>
+                                <exclude reference="PLY-fL-ULu"/>
+                                <exclude reference="ODN-1u-uRd"/>
+                                <exclude reference="0f4-eD-INF"/>
+                                <exclude reference="YTy-DZ-psH"/>
+                                <exclude reference="W7f-T1-YZW"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="subviews">
-                                <include reference="Atv-c8-uf1"/>
-                                <include reference="BiL-my-Qxq"/>
-                                <include reference="1le-rm-Ium"/>
+                                <exclude reference="Atv-c8-uf1"/>
+                                <exclude reference="BiL-my-Qxq"/>
+                                <exclude reference="1le-rm-Ium"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -512,12 +505,12 @@
                                 <exclude reference="R5F-yn-xll"/>
                                 <exclude reference="g3o-bi-eOS"/>
                                 <exclude reference="04I-E4-Pvq"/>
+                                <include reference="H1p-mm-NCg"/>
                                 <include reference="PLY-fL-ULu"/>
                                 <exclude reference="ODN-1u-uRd"/>
                                 <exclude reference="W7f-T1-YZW"/>
-                                <exclude reference="EkH-AW-FSb"/>
                                 <exclude reference="Rhl-Sm-eh1"/>
-                                <include reference="H1p-mm-NCg"/>
+                                <exclude reference="EkH-AW-FSb"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
@@ -540,11 +533,11 @@
                                 <exclude reference="txa-RW-RRW"/>
                                 <exclude reference="BiL-my-Qxq"/>
                                 <exclude reference="AnH-SE-7aS"/>
+                                <exclude reference="7Ft-ZT-qRU"/>
+                                <exclude reference="1le-rm-Ium"/>
                                 <exclude reference="KPJ-Ln-bzY"/>
                                 <exclude reference="RwO-Xp-zDG"/>
                                 <exclude reference="Fgf-sC-YPc"/>
-                                <exclude reference="7Ft-ZT-qRU"/>
-                                <exclude reference="1le-rm-Ium"/>
                             </mask>
                         </variation>
                     </view>
