@@ -21,7 +21,7 @@
 @implementation ViewController
 
 +(NSInteger) maxNavTitleLength {
-    return 5;
+    return 10;
 }
 
 +(NSString *) defaultNavTitle {
@@ -33,8 +33,8 @@
     
     // В том случае, если установлен индекс,
     // редактируем уже существующую заметку -> нужно загрузить данные
-    if ( -1 != self.index ) {
-        Note * note = [self.dataCtrl selectNoteByIndex: self.index];
+    if ( nil != self.index ) {
+        Note * note = [self.dataCtrl selectNoteByIndex: self.index.row];
         self.noteTitle.text = note.title;
         self.text.text = note.text;
         
@@ -111,30 +111,29 @@
     
     // Если на экране добавления заметки, вызываем метод создания новой заметки;
     // Если на экране редактирования заметки, вызываем метод обновления существующих данных
-    if ( -1 == self.index )
+    if ( nil == self.index ) {
         [self.dataCtrl addNote: note];
-    else
-        [self.dataCtrl updateNoteAtIndex: self.index WithNote: note];
+        self.parent.needUpdateAll = YES;
+    }
+    else {
+        [self.dataCtrl updateNoteAtIndex: self.index.row WithNote: note];
+        [self.parent.cellsToUpdate addObject: self.index];
+    }
     
     // И возвращаемся на экран со списком заметок
-    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ViewController * tableViewController = (ViewController *)[storyboard  instantiateViewControllerWithIdentifier:@"NotesTableViewController"];
-    
-    [self.navigationController pushViewController:tableViewController animated:YES];
+    [self.navigationController popToRootViewControllerAnimated: YES];
 }
 
 - (IBAction)removeNote:(id)sender {
     // Удаление нужно осуществлять, только если вызвано оно с экрана редактирования:
     // в противном случае заметки и так пока нет, ничего делать не надо
-    if ( -1 != self.index ) {
-        [ self.dataCtrl removeNoteByIndex: self.index ];
+    if ( nil != self.index ) {
+        [ self.dataCtrl removeNoteByIndex: self.index.row ];
     }
     
     // Возвращаемся на экран со списком заметок
-    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ViewController * tableViewController = (ViewController *)[storyboard  instantiateViewControllerWithIdentifier:@"NotesTableViewController"];
-    
-    [self.navigationController pushViewController:tableViewController animated:YES];
+    self.parent.needUpdateAll = YES;
+    [self.navigationController popToRootViewControllerAnimated: YES];
 }
 
 - (IBAction)changeColor:(id)sender {
@@ -142,6 +141,9 @@
     UIButton * button = (UIButton *) sender;
     self.noteTitle.backgroundColor = button.backgroundColor;
     self.colorMark.backgroundColor = button.backgroundColor;
+}
+- (IBAction)returnToMainScreen:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated: YES];
 }
 
 @end

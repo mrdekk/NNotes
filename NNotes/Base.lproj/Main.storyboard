@@ -466,11 +466,19 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="UOr-T4-rJD">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="Cqz-zF-beD">
+                            <connections>
+                                <action selector="returnToMainScreen:" destination="WGN-CK-xml" id="je2-wA-5jI"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="✔︎" id="bHB-mw-Tvn">
                             <connections>
                                 <action selector="addOrEditNote:" destination="WGN-CK-xml" id="V8r-rf-kwm"/>
                             </connections>
                         </barButtonItem>
+                        <connections>
+                            <outlet property="backBarButtonItem" destination="Cqz-zF-beD" id="C6a-Hr-22t"/>
+                        </connections>
                     </navigationItem>
                     <connections>
                         <outlet property="navTitle" destination="UOr-T4-rJD" id="3ph-Bv-Kfy"/>

@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 
 #import "NotesDataController.h"
-#import "ViewController.h"
 #import "Note.h"
 
 @interface NotesTableViewController : UITableViewController
 
 @property (nonatomic, strong) NotesDataController * dataCtrl;
+@property (nonatomic, assign) BOOL needUpdateAll;
+@property (nonatomic, strong) NSMutableArray * cellsToUpdate;
 
 @end

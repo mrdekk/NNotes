@@ -7,6 +7,7 @@
 //
 
 #import "NotesTableViewController.h"
+#import "ViewController.h"
 
 @interface NotesTableViewController ()
 
@@ -21,8 +22,29 @@
     self.dataCtrl = [[NotesDataController alloc] init];
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear: animated];
+    
+    if (self.needUpdateAll) {
+        [self.tableView reloadData];
+        self.needUpdateAll = NO;
+    }
+    else if ([self.cellsToUpdate count] > 0) {
+        [self.tableView reloadRowsAtIndexPaths: self.cellsToUpdate withRowAnimation: UITableViewRowAnimationAutomatic];
+        [self.cellsToUpdate removeAllObjects];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Custom Setters and Gettes
+-(NSMutableArray *) cellsToUpdate {
+    if (nil == _cellsToUpdate)
+        _cellsToUpdate = [[NSMutableArray alloc] init];
+    
+    return _cellsToUpdate;
 }
 
 #pragma mark - Table view data source
@@ -56,20 +78,15 @@
     
     if ([ctrl class] == [ViewController class]) {
         ViewController * detailCtrl = (ViewController *) ctrl;
+        detailCtrl.parent = self;
         
         // Устанавливаем контроллеру экрана детального просмотра
         // делегата для работы с БД
         detailCtrl.dataCtrl = self.dataCtrl;
         
-        // Если добавление новой заметки, устанавливаем индекс = -1
+        // Если добавление новой заметки, устанавливаем индекс = nil
         // Если просмотр/редактирование существующей, ее индекс
-        if ( nil == index ) {
-            int i = -1;
-            NSInteger nsi = (NSInteger) i;
-            detailCtrl.index = nsi;
-        }
-        else
-            detailCtrl.index = index.row;
+        detailCtrl.index = index;
     }
 }
 
