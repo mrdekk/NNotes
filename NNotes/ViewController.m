@@ -12,7 +12,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *noteTitle;
 @property (weak, nonatomic) IBOutlet UITextView * text;
 @property (weak, nonatomic) IBOutlet UILabel *colorMark;
-@property (weak, nonatomic) IBOutlet UINavigationItem *navTitle;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textBottomCompact;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textBottom;
 
@@ -28,6 +27,11 @@
     return @"Новая";
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear: animated];
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -39,16 +43,16 @@
         self.text.text = note.text;
         
         if ( note.title.length > [ViewController maxNavTitleLength])
-            self.navTitle.title = [ NSString stringWithFormat: @"%@...", [ note.title substringToIndex: [ViewController maxNavTitleLength ] ] ];
+            self.navigationItem.title = [ NSString stringWithFormat: @"%@...", [ note.title substringToIndex: [ViewController maxNavTitleLength ] ] ];
         else
-            self.navTitle.title = note.title;
+            self.navigationItem.title = note.title;
         
         UIColor * clr = [[UIColor alloc] initWithRed: [note.colorR doubleValue] green: [note.colorG doubleValue] blue: [note.colorB doubleValue] alpha: [[[NSNumber alloc] initWithDouble: 1] doubleValue]];
         self.colorMark.backgroundColor = clr;
         self.noteTitle.backgroundColor = clr;
     }
     else
-        self.navTitle.title = [ViewController defaultNavTitle];
+        self.navigationItem.title = [ViewController defaultNavTitle];
     
     [ self observeKeyboard ];
 }
@@ -141,9 +145,6 @@
     UIButton * button = (UIButton *) sender;
     self.noteTitle.backgroundColor = button.backgroundColor;
     self.colorMark.backgroundColor = button.backgroundColor;
-}
-- (IBAction)returnToMainScreen:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated: YES];
 }
 
 @end
