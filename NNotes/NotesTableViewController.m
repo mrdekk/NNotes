@@ -9,7 +9,7 @@
 #import "NotesTableViewController.h"
 #import "ViewController.h"
 
-@interface NotesTableViewController ()
+@interface NotesTableViewController() <UpdatableNotesTable>
 
 @end
 
@@ -47,6 +47,11 @@
     return _cellsToUpdate;
 }
 
+#pragma mark - Methods of protocol UpdatableNotesTable
+-(void) markCellAsRequiringUpdate:(NSIndexPath *)pathToCell {
+    [self.cellsToUpdate addObject: pathToCell];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -78,7 +83,7 @@
     
     if ([ctrl class] == [ViewController class]) {
         ViewController * detailCtrl = (ViewController *) ctrl;
-        detailCtrl.parent = self;
+        detailCtrl.notesListDelegate = self;
         
         // Устанавливаем контроллеру экрана детального просмотра
         // делегата для работы с БД

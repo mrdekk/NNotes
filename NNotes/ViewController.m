@@ -117,11 +117,11 @@
     // Если на экране редактирования заметки, вызываем метод обновления существующих данных
     if ( nil == self.index ) {
         [self.dataCtrl addNote: note];
-        self.parent.needUpdateAll = YES;
+        [self.notesListDelegate setNeedUpdateAll: YES];
     }
     else {
         [self.dataCtrl updateNoteAtIndex: self.index.row WithNote: note];
-        [self.parent.cellsToUpdate addObject: self.index];
+        [self.notesListDelegate markCellAsRequiringUpdate: self.index];
     }
     
     // И возвращаемся на экран со списком заметок
@@ -136,7 +136,7 @@
     }
     
     // Возвращаемся на экран со списком заметок
-    self.parent.needUpdateAll = YES;
+    [self.notesListDelegate setNeedUpdateAll: YES];
     [self.navigationController popViewControllerAnimated: YES];
 }
 

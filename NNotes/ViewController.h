@@ -9,13 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "Note.h"
 #import "NotesDataController.h"
-#import "NotesTableViewController.h"
+
+@protocol UpdatableNotesTable <NSObject>
+
+-(void) setNeedUpdateAll: (BOOL) needUpdateAll;
+-(void) markCellAsRequiringUpdate: (NSIndexPath *) pathToCell;
+
+@end
 
 @interface ViewController : UIViewController
 
 @property (nonatomic, strong) NSIndexPath * index;
 @property (nonatomic, strong) NotesDataController * dataCtrl;
-@property (nonatomic, weak) NotesTableViewController * parent;
+@property (nonatomic, weak) id <UpdatableNotesTable> notesListDelegate;
 
 @end
 
