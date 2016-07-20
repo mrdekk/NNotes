@@ -78,8 +78,9 @@
     self.text.contentInset = UIEdgeInsetsMake(0, 0, height, 0);
     self.text.scrollIndicatorInsets = self.text.contentInset;
     
+    __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:animationDuration animations:^{
-        [self.view layoutIfNeeded];
+        [weakSelf.view layoutIfNeeded];
     }];
 }
 
@@ -90,8 +91,9 @@
     self.text.contentInset = UIEdgeInsetsZero;
     self.text.scrollIndicatorInsets = UIEdgeInsetsZero;
     
+    __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:animationDuration animations:^{
-        [self.view layoutIfNeeded];
+        [weakSelf.view layoutIfNeeded];
     }];
 }
 
