@@ -125,7 +125,7 @@
     }
     
     // И возвращаемся на экран со списком заметок
-    [self.navigationController popToRootViewControllerAnimated: YES];
+    [self.navigationController popViewControllerAnimated: YES];
 }
 
 - (IBAction)removeNote:(id)sender {
@@ -137,7 +137,7 @@
     
     // Возвращаемся на экран со списком заметок
     self.parent.needUpdateAll = YES;
-    [self.navigationController popToRootViewControllerAnimated: YES];
+    [self.navigationController popViewControllerAnimated: YES];
 }
 
 - (IBAction)changeColor:(id)sender {
