@@ -12,10 +12,21 @@
 @property (weak, nonatomic) IBOutlet UITextView *noteTitle;
 @property (weak, nonatomic) IBOutlet UITextView * text;
 @property (weak, nonatomic) IBOutlet UILabel *colorMark;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navTitle;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textBottomCompact;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textBottom;
 
 @end
 
 @implementation ViewController
+
++(NSInteger) maxNavTitleLength {
+    return 5;
+}
+
++(NSString *) defaultNavTitle {
+    return @"Новая";
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,14 +38,63 @@
         self.noteTitle.text = note.title;
         self.text.text = note.text;
         
+        if ( note.title.length > [ViewController maxNavTitleLength])
+            self.navTitle.title = [ NSString stringWithFormat: @"%@...", [ note.title substringToIndex: [ViewController maxNavTitleLength ] ] ];
+        else
+            self.navTitle.title = note.title;
+        
         UIColor * clr = [[UIColor alloc] initWithRed: [note.colorR doubleValue] green: [note.colorG doubleValue] blue: [note.colorB doubleValue] alpha: [[[NSNumber alloc] initWithDouble: 1] doubleValue]];
         self.colorMark.backgroundColor = clr;
         self.noteTitle.backgroundColor = clr;
     }
+    else
+        self.navTitle.title = [ViewController defaultNavTitle];
+    
+    [ self observeKeyboard ];
+}
+
+-(NSUInteger)navigationControllerSupportedInterfaceOrientations:(UINavigationController *)navigationController {
+    return navigationController.topViewController.supportedInterfaceOrientations;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)observeKeyboard {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+    NSDictionary *info = [notification userInfo];
+    NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
+    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    CGRect keyboardFrame = [kbFrame CGRectValue];
+    
+    BOOL isPortrait = UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation);
+    CGFloat height = isPortrait ? keyboardFrame.size.height : keyboardFrame.size.width;
+    
+    self.text.contentInset = UIEdgeInsetsMake(0, 0, height, 0);
+    self.text.scrollIndicatorInsets = self.text.contentInset;
+    
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:animationDuration animations:^{
+        [weakSelf.view layoutIfNeeded];
+    }];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    NSDictionary *info = [notification userInfo];
+    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    self.text.contentInset = UIEdgeInsetsZero;
+    self.text.scrollIndicatorInsets = UIEdgeInsetsZero;
+    
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:animationDuration animations:^{
+        [weakSelf.view layoutIfNeeded];
+    }];
 }
 
 - (IBAction)addOrEditNote:(id)sender {
