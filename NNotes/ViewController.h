@@ -10,10 +10,18 @@
 #import "Note.h"
 #import "NotesDataController.h"
 
+@protocol UpdatableNotesTable <NSObject>
+
+-(void) setNeedUpdateAll: (BOOL) needUpdateAll;
+-(void) markCellAsRequiringUpdate: (NSIndexPath *) pathToCell;
+
+@end
+
 @interface ViewController : UIViewController
 
-@property (nonatomic) NSInteger index;
-@property (nonatomic, retain) NotesDataController * dataCtrl;
+@property (nonatomic, strong) NSIndexPath * index;
+@property (nonatomic, strong) NotesDataController * dataCtrl;
+@property (nonatomic, weak) id <UpdatableNotesTable> notesListDelegate;
 
 @end
 

@@ -45,6 +45,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Журнал заметок" id="Yt1-V6-Hqq">
+                        <barButtonItem key="backBarButtonItem" title=" " id="cXl-l8-dZR"/>
                         <barButtonItem key="rightBarButtonItem" title="Новая" id="rnc-Pn-Smz">
                             <connections>
                                 <segue destination="WGN-CK-xml" kind="show" id="g2R-dm-klv"/>
@@ -473,7 +474,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="navTitle" destination="UOr-T4-rJD" id="3ph-Bv-Kfy"/>
                         <outlet property="noteTitle" destination="bG1-g0-L0I" id="Wyy-jy-3G0"/>
                         <outlet property="text" destination="GpG-UK-k30" id="16z-Fg-Gb9"/>
                         <outlet property="textBottom" destination="yWl-Yk-pJO" id="gXO-bI-Zfx"/>

@@ -12,7 +12,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *noteTitle;
 @property (weak, nonatomic) IBOutlet UITextView * text;
 @property (weak, nonatomic) IBOutlet UILabel *colorMark;
-@property (weak, nonatomic) IBOutlet UINavigationItem *navTitle;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textBottomCompact;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textBottom;
 
@@ -21,11 +20,16 @@
 @implementation ViewController
 
 +(NSInteger) maxNavTitleLength {
-    return 5;
+    return 10;
 }
 
 +(NSString *) defaultNavTitle {
     return @"Новая";
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear: animated];
+    
 }
 
 - (void)viewDidLoad {
@@ -33,22 +37,22 @@
     
     // В том случае, если установлен индекс,
     // редактируем уже существующую заметку -> нужно загрузить данные
-    if ( -1 != self.index ) {
-        Note * note = [self.dataCtrl selectNoteByIndex: self.index];
+    if ( nil != self.index ) {
+        Note * note = [self.dataCtrl selectNoteByIndex: self.index.row];
         self.noteTitle.text = note.title;
         self.text.text = note.text;
         
         if ( note.title.length > [ViewController maxNavTitleLength])
-            self.navTitle.title = [ NSString stringWithFormat: @"%@...", [ note.title substringToIndex: [ViewController maxNavTitleLength ] ] ];
+            self.navigationItem.title = [ NSString stringWithFormat: @"%@...", [ note.title substringToIndex: [ViewController maxNavTitleLength ] ] ];
         else
-            self.navTitle.title = note.title;
+            self.navigationItem.title = note.title;
         
         UIColor * clr = [[UIColor alloc] initWithRed: [note.colorR doubleValue] green: [note.colorG doubleValue] blue: [note.colorB doubleValue] alpha: [[[NSNumber alloc] initWithDouble: 1] doubleValue]];
         self.colorMark.backgroundColor = clr;
         self.noteTitle.backgroundColor = clr;
     }
     else
-        self.navTitle.title = [ViewController defaultNavTitle];
+        self.navigationItem.title = [ViewController defaultNavTitle];
     
     [ self observeKeyboard ];
 }
@@ -111,30 +115,29 @@
     
     // Если на экране добавления заметки, вызываем метод создания новой заметки;
     // Если на экране редактирования заметки, вызываем метод обновления существующих данных
-    if ( -1 == self.index )
+    if ( nil == self.index ) {
         [self.dataCtrl addNote: note];
-    else
-        [self.dataCtrl updateNoteAtIndex: self.index WithNote: note];
+        [self.notesListDelegate setNeedUpdateAll: YES];
+    }
+    else {
+        [self.dataCtrl updateNoteAtIndex: self.index.row WithNote: note];
+        [self.notesListDelegate markCellAsRequiringUpdate: self.index];
+    }
     
     // И возвращаемся на экран со списком заметок
-    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ViewController * tableViewController = (ViewController *)[storyboard  instantiateViewControllerWithIdentifier:@"NotesTableViewController"];
-    
-    [self.navigationController pushViewController:tableViewController animated:YES];
+    [self.navigationController popViewControllerAnimated: YES];
 }
 
 - (IBAction)removeNote:(id)sender {
     // Удаление нужно осуществлять, только если вызвано оно с экрана редактирования:
     // в противном случае заметки и так пока нет, ничего делать не надо
-    if ( -1 != self.index ) {
-        [ self.dataCtrl removeNoteByIndex: self.index ];
+    if ( nil != self.index ) {
+        [ self.dataCtrl removeNoteByIndex: self.index.row ];
     }
     
     // Возвращаемся на экран со списком заметок
-    UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ViewController * tableViewController = (ViewController *)[storyboard  instantiateViewControllerWithIdentifier:@"NotesTableViewController"];
-    
-    [self.navigationController pushViewController:tableViewController animated:YES];
+    [self.notesListDelegate setNeedUpdateAll: YES];
+    [self.navigationController popViewControllerAnimated: YES];
 }
 
 - (IBAction)changeColor:(id)sender {
