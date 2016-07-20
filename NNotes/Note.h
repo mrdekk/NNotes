@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DbNote.h"
 
 @interface Note : NSObject
 
@@ -15,7 +16,10 @@
 @property (nonatomic, strong) NSNumber * colorR;
 @property (nonatomic, strong) NSNumber * colorG;
 @property (nonatomic, strong) NSNumber * colorB;
+@property (nonatomic, strong) NSString * noteId;
+@property (nonatomic, strong) NSNumber * rowId;
 
-- initWithTitle: (NSString *) title Text: (NSString *) text ColorR: (NSNumber *) colorR ColorG: (NSNumber *) colorG andColorB: (NSNumber *) colorB;
+-(DbNote *) createDbNote;
+-(id) initNoteWithDbNote: (DbNote *) dbNote;
 
 @end

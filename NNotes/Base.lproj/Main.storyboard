@@ -10,31 +10,44 @@
         <scene sceneID="00F-fR-VHW">
             <objects>
                 <tableViewController storyboardIdentifier="NotesTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lB8-0g-Ra1" customClass="NotesTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9EP-bp-Xuy">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="121" sectionHeaderHeight="28" sectionFooterHeight="28" id="9EP-bp-Xuy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NotesListCell" textLabel="4o2-9R-Bxm" style="IBUITableViewCellStyleDefault" id="TTu-xf-pUD">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NotesListCell" rowHeight="121" id="TTu-xf-pUD" customClass="NotesListCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="121"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TTu-xf-pUD" id="Lnc-ec-Rvd">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4o2-9R-Bxm">
-                                            <rect key="frame" x="15" y="0.0" width="550" height="43"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjh-ei-RjP">
+                                            <rect key="frame" x="8" y="8" width="551" height="20"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
-                                            <variation key="widthClass=compact">
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MoJ-mM-51U">
+                                            <rect key="frame" x="8" y="28" width="551" height="84"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tjh-ei-RjP" firstAttribute="trailing" secondItem="Lnc-ec-Rvd" secondAttribute="trailingMargin" id="5PS-Q0-Dr3"/>
+                                        <constraint firstItem="MoJ-mM-51U" firstAttribute="leading" secondItem="Lnc-ec-Rvd" secondAttribute="leadingMargin" id="Hfv-KU-jHW"/>
+                                        <constraint firstItem="MoJ-mM-51U" firstAttribute="top" secondItem="tjh-ei-RjP" secondAttribute="bottom" id="V13-JM-SNh"/>
+                                        <constraint firstItem="tjh-ei-RjP" firstAttribute="leading" secondItem="Lnc-ec-Rvd" secondAttribute="leadingMargin" id="kT3-lV-1P6"/>
+                                        <constraint firstItem="MoJ-mM-51U" firstAttribute="trailing" secondItem="Lnc-ec-Rvd" secondAttribute="trailingMargin" id="tPI-kQ-dva"/>
+                                        <constraint firstItem="tjh-ei-RjP" firstAttribute="top" secondItem="Lnc-ec-Rvd" secondAttribute="topMargin" id="uvk-gb-6iV"/>
+                                        <constraint firstItem="MoJ-mM-51U" firstAttribute="bottom" secondItem="Lnc-ec-Rvd" secondAttribute="bottomMargin" id="yPz-d0-b3x"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="noteCellDescription" destination="MoJ-mM-51U" id="qan-u5-Zi6"/>
+                                    <outlet property="noteCellTitle" destination="tjh-ei-RjP" id="2WV-fr-TUq"/>
                                     <segue destination="WGN-CK-xml" kind="show" id="Mxy-9k-MyO"/>
                                 </connections>
                             </tableViewCell>
@@ -46,12 +59,20 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Журнал заметок" id="Yt1-V6-Hqq">
                         <barButtonItem key="backBarButtonItem" title=" " id="cXl-l8-dZR"/>
-                        <barButtonItem key="rightBarButtonItem" title="Новая" id="rnc-Pn-Smz">
+                        <barButtonItem key="leftBarButtonItem" title="Reorder" id="OWu-yX-qEG">
+                            <connections>
+                                <action selector="changeToReorderMode:" destination="lB8-0g-Ra1" id="xVL-hV-xE0"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rnc-Pn-Smz">
                             <connections>
                                 <segue destination="WGN-CK-xml" kind="show" id="g2R-dm-klv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="reorderModeButton" destination="OWu-yX-qEG" id="gxg-3o-p42"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nhb-TL-k7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,7 +81,7 @@
         <!--Title-->
         <scene sceneID="V6M-7T-zeN">
             <objects>
-                <viewController id="WGN-CK-xml" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailedView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WGN-CK-xml" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="37d-eA-lET"/>
                         <viewControllerLayoutGuide type="bottom" id="PpA-zN-DCh"/>
@@ -69,8 +90,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5B-PV-BhA">
-                                <rect key="frame" x="494" y="283" width="99" height="99"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5B-PV-BhA">
+                                <rect key="frame" x="494" y="282" width="99" height="100"/>
                                 <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="52c-81-Vax"/>
@@ -138,8 +159,8 @@
                                     <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="M5h-9M-QRj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFo-lq-3Ye">
-                                <rect key="frame" x="494" y="173" width="99" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFo-lq-3Ye">
+                                <rect key="frame" x="494" y="173" width="99" height="99"/>
                                 <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="43"/>
                                 <connections>
@@ -502,6 +523,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Mxy-9k-MyO"/>
+        <segue reference="g2R-dm-klv"/>
     </inferredMetricsTieBreakers>
 </document>

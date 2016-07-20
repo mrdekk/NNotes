@@ -10,19 +10,34 @@
 
 @implementation Note
 
-- (id)init {
+-(id) initNoteWithDbNote:(DbNote *) dbNote {
     self = [super init];
+    if (self) {
+        self.title = dbNote.title;
+        self.text = dbNote.text;
+        self.colorR = dbNote.colorR;
+        self.colorB = dbNote.colorB;
+        self.colorG = dbNote.colorG;
+        self.noteId = dbNote.noteId;
+        self.rowId = dbNote.rowId;
+    }
+    
     return self;
 }
 
-- (id) initWithTitle: (NSString *) title Text: (NSString *) text ColorR:(NSNumber *)colorR ColorG:(NSNumber *)colorG andColorB:(NSNumber *)colorB {
-    self = [self init];
-    self.title = title;
-    self.text = text;
-    self.colorR = colorR;
-    self.colorG = colorG;
-    self.colorB = colorB;
-    return self;
+-(DbNote *) createDbNote {
+    DbNote * dbNote = [[DbNote alloc] init];
+    if (dbNote) {
+        dbNote.title = self.title;
+        dbNote.text = self.text;
+        dbNote.colorR = self.colorR;
+        dbNote.colorB = self.colorB;
+        dbNote.colorG = self.colorG;
+        dbNote.noteId = self.noteId;
+        dbNote.rowId = self.rowId;
+    }
+    
+    return dbNote;
 }
 
 @end
