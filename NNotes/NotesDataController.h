@@ -17,6 +17,9 @@
 
 - (void) initializeCoreData;
 - (void) addNote: (Note *) note;
+- (void) addNoteWithExistedId: (Note *) note;
+- (void) updateNote: (Note *) note;
+- (void) updateNoteWithId: (NSString *)noteId withNote: (Note *)note;
 - (void) updateNoteAtIndex: (NSInteger) index WithNote: (Note *) note;
 - (NSInteger) countNotes;
 - (Note *) selectNoteByIndex: (NSInteger) index;

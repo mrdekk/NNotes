@@ -58,8 +58,24 @@
     crnote.colorR = note.colorR;
     crnote.colorG = note.colorG;
     crnote.colorB = note.colorB;
-    crnote.rowId = [NSNumber numberWithLong: [self countNotes] - 1];
     crnote.noteId = [[[crnote objectID] URIRepresentation] absoluteString];
+    
+    NSError *error = nil;
+    if ([[self managedObjectContext] save:&error] == NO) {
+        NSAssert(NO, @"Не удалось сохранить заметку: %@\n%@", [error localizedDescription], [error userInfo]);
+    }
+}
+
+- (void) addNoteWithExistedId:(Note *)note {
+    // Создаем новую заметку в БД, заполняем введенными пользователем данными
+    DbNote * crnote = [NSEntityDescription insertNewObjectForEntityForName:@"DbNote" inManagedObjectContext:[self managedObjectContext]];
+    
+    crnote.text = note.text;
+    crnote.title = note.title;
+    crnote.colorR = note.colorR;
+    crnote.colorG = note.colorG;
+    crnote.colorB = note.colorB;
+    crnote.noteId = note.noteId;
     
     NSError *error = nil;
     if ([[self managedObjectContext] save:&error] == NO) {
@@ -86,7 +102,7 @@
 -(DbNote *) selectDbNoteById: (NSString *) noteId {
     NSFetchRequest * request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:@"DbNote" inManagedObjectContext: self.managedObjectContext]];
-    NSPredicate * predicate = [NSPredicate predicateWithFormat: @"noteId = %@", noteId ];
+    NSPredicate * predicate = [NSPredicate predicateWithFormat: @"noteId == %@", noteId ];
     [request setPredicate: predicate];
     
     NSError *error = nil;
@@ -101,8 +117,8 @@
 -(DbNote *) selectDbNoteByRow: (NSNumber *) row {
     NSFetchRequest * request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:@"DbNote" inManagedObjectContext: self.managedObjectContext]];
-    NSPredicate * predicate = [NSPredicate predicateWithFormat: @"rowId = %@", row ];
-    [request setPredicate: predicate];
+    [request setFetchLimit: 1];
+    [request setFetchOffset: [row integerValue]];
     
     NSError *error = nil;
     NSArray * results = [[self managedObjectContext] executeFetchRequest:request error:&error];
@@ -113,12 +129,27 @@
     return [results objectAtIndex: 0];
 }
 
+- (void) updateNoteWithId: (NSString *)noteId withNote: (Note *)note {
+    DbNote * dbNote = [self selectDbNoteById: noteId];
+    dbNote.title = note.title;
+    dbNote.text = note.text;
+    dbNote.noteId = note.noteId;
+    dbNote.colorR = note.colorR;
+    dbNote.colorB = note.colorB;
+    dbNote.colorG = note.colorG;
+    dbNote.noteId = note.noteId;
+    
+    NSError * error = nil;
+    if ([[self managedObjectContext] save:&error] == NO) {
+        NSAssert(NO, @"Не удалось сохранить заметку: %@\n%@", [error localizedDescription], [error userInfo]);
+    }
+}
+
 -(void) updateNote: (Note *) note {
     DbNote * dbNote = [self selectDbNoteById: note.noteId];
     dbNote.title = note.title;
     dbNote.text = note.text;
     dbNote.noteId = note.noteId;
-    dbNote.rowId = note.rowId;
     dbNote.colorR = note.colorR;
     dbNote.colorB = note.colorB;
     dbNote.colorG = note.colorG;
@@ -136,7 +167,6 @@
     selected.colorR = note.colorR;
     selected.colorG = note.colorG;
     selected.colorB = note.colorB;
-    selected.rowId = [NSNumber numberWithLong: index];
     
     NSError * error = nil;
     if ([[self managedObjectContext] save:&error] == NO) {
@@ -205,11 +235,22 @@
 
 -(void) moveNoteWithId: (NSString *) noteId toPlace: (NSNumber *) row {
     DbNote * toMoveNote = [self selectDbNoteById: noteId];
+    Note * tmpNote = [[Note alloc] initNoteWithDbNote: toMoveNote];
     DbNote * toReplaceNote = [self selectDbNoteByRow: row];
     
-    NSNumber * fromRow = toMoveNote.rowId;
-    toMoveNote.rowId = row;
-    toReplaceNote.rowId = fromRow;
+    toMoveNote.noteId = toReplaceNote.noteId;
+    toMoveNote.title = toReplaceNote.title;
+    toMoveNote.text = toReplaceNote.text;
+    toMoveNote.colorR = toReplaceNote.colorR;
+    toMoveNote.colorB = toReplaceNote.colorB;
+    toMoveNote.colorG = toReplaceNote.colorG;
+    
+    toReplaceNote.noteId = tmpNote.noteId;
+    toReplaceNote.title = tmpNote.title;
+    toReplaceNote.text = tmpNote.text;
+    toReplaceNote.colorR = tmpNote.colorR;
+    toReplaceNote.colorB = tmpNote.colorB;
+    toReplaceNote.colorG = tmpNote.colorG;
     
     NSError * error = nil;
     if ([[self managedObjectContext] save:&error] == NO) {

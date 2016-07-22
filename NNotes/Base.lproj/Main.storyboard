@@ -14,6 +14,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="ZwC-l2-kV3">
+                            <rect key="frame" x="0.0" y="213" width="600" height="93"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NotesListCell" rowHeight="121" id="TTu-xf-pUD" customClass="NotesListCell">
                                 <rect key="frame" x="0.0" y="92" width="600" height="121"/>
@@ -59,7 +64,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Журнал заметок" id="Yt1-V6-Hqq">
                         <barButtonItem key="backBarButtonItem" title=" " id="cXl-l8-dZR"/>
-                        <barButtonItem key="leftBarButtonItem" title="Reorder" id="OWu-yX-qEG">
+                        <barButtonItem key="leftBarButtonItem" title="✎" id="OWu-yX-qEG">
                             <connections>
                                 <action selector="changeToReorderMode:" destination="lB8-0g-Ra1" id="xVL-hV-xE0"/>
                             </connections>

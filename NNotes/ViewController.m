@@ -121,7 +121,6 @@
     note.colorG = [NSNumber numberWithDouble: clrG];
     note.colorR = [NSNumber numberWithDouble: clrR];
     note.colorB = [NSNumber numberWithDouble: clrB];
-    note.rowId = [NSNumber numberWithLong: self.index.row];
     note.noteId = self.noteId;
     
     // Если на экране добавления заметки, вызываем метод создания новой заметки;
