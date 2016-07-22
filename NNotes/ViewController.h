@@ -20,6 +20,7 @@
 @interface ViewController : UIViewController
 
 @property (nonatomic, strong) NSIndexPath * index;
+@property (nonatomic, strong) NSString * noteId;
 @property (nonatomic, strong) NotesDataController * dataCtrl;
 @property (nonatomic, weak) id <UpdatableNotesTable> notesListDelegate;
 

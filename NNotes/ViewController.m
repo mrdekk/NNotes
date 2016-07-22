@@ -32,13 +32,17 @@
     
 }
 
+-(void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear: animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // В том случае, если установлен индекс,
     // редактируем уже существующую заметку -> нужно загрузить данные
-    if ( nil != self.index ) {
-        Note * note = [self.dataCtrl selectNoteByIndex: self.index.row];
+    if ( nil != self.noteId) {
+        Note * note = [self.dataCtrl selectNoteById: self.noteId];
         self.noteTitle.text = note.title;
         self.text.text = note.text;
         
@@ -111,7 +115,14 @@
     UIColor * clr = self.noteTitle.backgroundColor;
     [ clr getRed: &clrR green: &clrG blue: &clrB alpha: &alpha];
     
-    Note * note = [[Note alloc] initWithTitle: self.noteTitle.text Text: self.text.text ColorR: [[NSNumber alloc] initWithDouble: clrR ] ColorG: [[NSNumber alloc] initWithDouble: clrG ] andColorB: [[NSNumber alloc] initWithDouble: clrB ] ];
+    Note * note = [[Note alloc] init];
+    note.title = self.noteTitle.text;
+    note.text = self.text.text;
+    note.colorG = [NSNumber numberWithDouble: clrG];
+    note.colorR = [NSNumber numberWithDouble: clrR];
+    note.colorB = [NSNumber numberWithDouble: clrB];
+    note.rowId = [NSNumber numberWithLong: self.index.row];
+    note.noteId = self.noteId;
     
     // Если на экране добавления заметки, вызываем метод создания новой заметки;
     // Если на экране редактирования заметки, вызываем метод обновления существующих данных

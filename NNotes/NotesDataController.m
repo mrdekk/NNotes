@@ -52,40 +52,93 @@
 -(void) addNote:(Note *)note {
     // Создаем новую заметку в БД, заполняем введенными пользователем данными
     DbNote * crnote = [NSEntityDescription insertNewObjectForEntityForName:@"DbNote" inManagedObjectContext:[self managedObjectContext]];
+    
     crnote.text = note.text;
     crnote.title = note.title;
     crnote.colorR = note.colorR;
     crnote.colorG = note.colorG;
     crnote.colorB = note.colorB;
+    crnote.rowId = [NSNumber numberWithLong: [self countNotes] - 1];
+    crnote.noteId = [[[crnote objectID] URIRepresentation] absoluteString];
     
     NSError *error = nil;
     if ([[self managedObjectContext] save:&error] == NO) {
         NSAssert(NO, @"Не удалось сохранить заметку: %@\n%@", [error localizedDescription], [error userInfo]);
     }
-    
 }
 
-- (void) updateNoteAtIndex: (NSInteger) index WithNote: (Note *) note {
-    // Обновляем данные уже существующей заметки
+-(Note *) selectNoteById: (NSString *) noteId {
+    DbNote * dbNote = [self selectDbNoteById: noteId];
+    if (!dbNote)
+        return nil;
+    
+    return [[Note alloc] initNoteWithDbNote: dbNote];
+}
+
+-(Note *) selectNoteByIndex:(NSInteger)index {
+    DbNote * dbNote = [self selectDbNoteByRow: [NSNumber numberWithLong: index]];
+    if (!dbNote)
+        return nil;
+    
+    return [[Note alloc] initNoteWithDbNote: dbNote];
+}
+
+-(DbNote *) selectDbNoteById: (NSString *) noteId {
     NSFetchRequest * request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:@"DbNote" inManagedObjectContext: self.managedObjectContext]];
-    [request setFetchOffset: index ];
-    [request setFetchLimit: 1];
+    NSPredicate * predicate = [NSPredicate predicateWithFormat: @"noteId = %@", noteId ];
+    [request setPredicate: predicate];
     
     NSError *error = nil;
     NSArray * results = [[self managedObjectContext] executeFetchRequest:request error:&error];
     if (!results || [ results count ] == 0 ) {
         NSLog(@"Нет данных о заметке: %@\n%@", [error localizedDescription], [error userInfo]);
-        return;
+        return nil;
     }
+    return [results objectAtIndex: 0];
+}
+
+-(DbNote *) selectDbNoteByRow: (NSNumber *) row {
+    NSFetchRequest * request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"DbNote" inManagedObjectContext: self.managedObjectContext]];
+    NSPredicate * predicate = [NSPredicate predicateWithFormat: @"rowId = %@", row ];
+    [request setPredicate: predicate];
     
-    DbNote * selected = (DbNote *) [results objectAtIndex: 0];
+    NSError *error = nil;
+    NSArray * results = [[self managedObjectContext] executeFetchRequest:request error:&error];
+    if (!results || [ results count ] == 0 ) {
+        NSLog(@"Нет данных о заметке: %@\n%@", [error localizedDescription], [error userInfo]);
+        return nil;
+    }
+    return [results objectAtIndex: 0];
+}
+
+-(void) updateNote: (Note *) note {
+    DbNote * dbNote = [self selectDbNoteById: note.noteId];
+    dbNote.title = note.title;
+    dbNote.text = note.text;
+    dbNote.noteId = note.noteId;
+    dbNote.rowId = note.rowId;
+    dbNote.colorR = note.colorR;
+    dbNote.colorB = note.colorB;
+    dbNote.colorG = note.colorG;
+    
+    NSError * error = nil;
+    if ([[self managedObjectContext] save:&error] == NO) {
+        NSAssert(NO, @"Не удалось сохранить заметку: %@\n%@", [error localizedDescription], [error userInfo]);
+    }
+}
+
+- (void) updateNoteAtIndex: (NSInteger) index WithNote: (Note *) note {
+    DbNote * selected = [self selectDbNoteByRow: [NSNumber numberWithLong: index]];
     selected.title = note.title;
     selected.text = note.text;
     selected.colorR = note.colorR;
     selected.colorG = note.colorG;
     selected.colorB = note.colorB;
+    selected.rowId = [NSNumber numberWithLong: index];
     
+    NSError * error = nil;
     if ([[self managedObjectContext] save:&error] == NO) {
         NSAssert(NO, @"Не удалось сохранить заметку: %@\n%@", [error localizedDescription], [error userInfo]);
     }
@@ -106,7 +159,8 @@
     
     // Преобразуем заметки уровня модели БД в заметки Web-модели
     for ( DbNote * obj in results) {
-        [notes addObject: [[Note alloc] initWithTitle: obj.title Text: obj.text ColorR: obj.colorR ColorG: obj.colorG andColorB: obj.colorB]];
+        Note * note = [[Note alloc] initNoteWithDbNote: obj];
+        [notes addObject: note];
     }
     return notes;
 }
@@ -123,31 +177,6 @@
         return 0;
     }
     return count;
-}
-
-- (Note *) selectNoteByIndex: (NSInteger) index {
-    // По индексу получаем из БД хранимую заметку
-    NSFetchRequest * request = [[NSFetchRequest alloc] init];
-    [request setEntity:[NSEntityDescription entityForName:@"DbNote" inManagedObjectContext: self.managedObjectContext]];
-    [request setFetchOffset: index ];
-    [request setFetchLimit: 1];
-    
-    NSError *error = nil;
-    NSArray * results = [[self managedObjectContext] executeFetchRequest:request error:&error];
-    if (!results || [ results count ] == 0 ) {
-        NSLog(@"Error fetching note: %@\n%@", [error localizedDescription], [error userInfo]);
-        return nil;
-    }
-    
-    // Преобразуем заметку уровня модели БД в заметку уровня Web-модели
-    Note * note = [[Note alloc] init];
-    DbNote * selected = (DbNote *) [results objectAtIndex: 0];
-    note.title = selected.title;
-    note.text = selected.text;
-    note.colorR = selected.colorR;
-    note.colorG = selected.colorG;
-    note.colorB = selected.colorB;
-    return note;
 }
 
 - (void) removeNoteByIndex:(NSInteger)index {
@@ -171,6 +200,20 @@
     [self.managedObjectContext deleteObject: selected];
     if ([[self managedObjectContext] save:&error] == NO) {
         NSAssert(NO, @"Не удалось удалить заметку: %@\n%@", [error localizedDescription], [error userInfo]);
+    }
+}
+
+-(void) moveNoteWithId: (NSString *) noteId toPlace: (NSNumber *) row {
+    DbNote * toMoveNote = [self selectDbNoteById: noteId];
+    DbNote * toReplaceNote = [self selectDbNoteByRow: row];
+    
+    NSNumber * fromRow = toMoveNote.rowId;
+    toMoveNote.rowId = row;
+    toReplaceNote.rowId = fromRow;
+    
+    NSError * error = nil;
+    if ([[self managedObjectContext] save:&error] == NO) {
+        NSAssert(NO, @"Не удалось сохранить заметку: %@\n%@", [error localizedDescription], [error userInfo]);
     }
 }
 
