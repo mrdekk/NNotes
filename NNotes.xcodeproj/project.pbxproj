@@ -24,6 +24,7 @@
 		B888D966EA25F4A70A1EC518 /* libPods-NNotesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A59D0026F1E002AE48CBA3 /* libPods-NNotesTests.a */; };
 		C975D7491D4603C600009F10 /* DbNote+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C975D7461D4603C600009F10 /* DbNote+CoreDataProperties.m */; };
 		C975D74A1D4603C600009F10 /* DbNote.m in Sources */ = {isa = PBXBuildFile; fileRef = C975D7481D4603C600009F10 /* DbNote.m */; };
+		C975D74D1D46171C00009F10 /* NotesService.m in Sources */ = {isa = PBXBuildFile; fileRef = C975D74C1D46171C00009F10 /* NotesService.m */; };
 		C9EB2BF81D3FA61000724F8F /* NotesListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9EB2BF71D3FA61000724F8F /* NotesListCell.m */; };
 		EC32C515A59A11021DE069AC /* libPods-NNotesUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6D3040C9800AC2E90D54A1 /* libPods-NNotesUITests.a */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,8 @@
 		C975D7461D4603C600009F10 /* DbNote+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DbNote+CoreDataProperties.m"; sourceTree = "<group>"; };
 		C975D7471D4603C600009F10 /* DbNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DbNote.h; sourceTree = "<group>"; };
 		C975D7481D4603C600009F10 /* DbNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DbNote.m; sourceTree = "<group>"; };
+		C975D74B1D46171C00009F10 /* NotesService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesService.h; sourceTree = "<group>"; };
+		C975D74C1D46171C00009F10 /* NotesService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesService.m; sourceTree = "<group>"; };
 		C9EB2BF61D3FA61000724F8F /* NotesListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesListCell.h; sourceTree = "<group>"; };
 		C9EB2BF71D3FA61000724F8F /* NotesListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesListCell.m; sourceTree = "<group>"; };
 		CC00F48A1EE54848ADB27CA3 /* libPods-NNotes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NNotes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +167,8 @@
 				C975D7461D4603C600009F10 /* DbNote+CoreDataProperties.m */,
 				C975D7471D4603C600009F10 /* DbNote.h */,
 				C975D7481D4603C600009F10 /* DbNote.m */,
+				C975D74B1D46171C00009F10 /* NotesService.h */,
+				C975D74C1D46171C00009F10 /* NotesService.m */,
 			);
 			path = NNotes;
 			sourceTree = "<group>";
@@ -486,6 +491,7 @@
 				C975D74A1D4603C600009F10 /* DbNote.m in Sources */,
 				C975D7491D4603C600009F10 /* DbNote+CoreDataProperties.m in Sources */,
 				7D5427B31D0D75F500002073 /* DbNotesModel.xcdatamodeld in Sources */,
+				C975D74D1D46171C00009F10 /* NotesService.m in Sources */,
 				C9EB2BF81D3FA61000724F8F /* NotesListCell.m in Sources */,
 				7D5427BE1D0D79A600002073 /* NotesDataController.m in Sources */,
 			);

@@ -10,9 +10,10 @@
 
 #import "NotesTableViewController.h"
 #import "ViewController.h"
+#import "NotesService.h"
 #import "NotesListCell.h"
 
-@interface NotesTableViewController() <UpdatableNotesTable>
+@interface NotesTableViewController() <UpdatableNotesTable, NotesDisplayer>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *reorderModeButton;
 
 @end
@@ -21,9 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Создаем новый NotesdataCtrl для манипуляций с БД
-    self.dataCtrl = [[NotesDataController alloc] init];
     
     // Конфигурируем tableView для автоматического определения высоты ячейки
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -81,9 +79,51 @@
     return _cellsToUpdate;
 }
 
+-(NotesDataController *) dataCtrl {
+    if (!_dataCtrl)
+        _dataCtrl = [[NotesDataController alloc] init];
+    return _dataCtrl;
+}
+
+-(NotesService *) notesService {
+    if (!_notesService) {
+        _notesService = [[NotesService alloc] init];
+        _notesService.notesDisplayerDelegate = self;
+    }
+    return _notesService;
+}
+
 #pragma mark - Methods of protocol UpdatableNotesTable
 -(void) markCellAsRequiringUpdate:(NSIndexPath *)pathToCell {
     [self.cellsToUpdate addObject: pathToCell];
+}
+
+#pragma mark - Methods of protocol NotesDisplayer
+-(void) notifyThatNotesAreSentSuccessfully: (BOOL) success {
+    UIAlertController * alertCtrl = [UIAlertController alertControllerWithTitle: @"Успешно отправлено" message: @"" preferredStyle: UIAlertControllerStyleAlert];
+    if (!success)
+        alertCtrl.title = @"Ошибка при отправке";
+    
+    UIAlertAction * cancelAction = [UIAlertAction
+                                    actionWithTitle:NSLocalizedString(@"Закрыть", @"Close")
+                                    style:UIAlertActionStyleCancel
+                                    handler:^(UIAlertAction *action) {
+                                    }];
+    [alertCtrl addAction: cancelAction];
+    [self.navigationController presentViewController: alertCtrl animated: YES completion: nil];
+    [self.tableView reloadData];
+}
+
+-(void) addNotesToList: (NSArray *) loadedNotes {
+    for (Note * note in loadedNotes) {
+        if (![self.dataCtrl selectNoteById: note.noteId])
+            [self.dataCtrl addNoteWithExistedId: note];
+    }
+    [self.tableView reloadData];
+}
+
+-(void) updateNote: (Note *) note withId: (NSString *) noteId {
+    [self.dataCtrl updateNoteWithId: noteId withNote: note];
 }
 
 #pragma mark - Table view data source
@@ -141,92 +181,11 @@
 }
 
 -(void) sendToServer {
-    NSURLSessionConfiguration * configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager * manager = [[AFURLSessionManager alloc] initWithSessionConfiguration: configuration];
-    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions: NSJSONReadingAllowFragments];
-    
-    dispatch_group_t group = dispatch_group_create();
-    
-    
-    NSArray * notes = [self.dataCtrl selectNotes];
-    NSURLRequest * request;
-    NSURLSessionDataTask * dataTask;
-    __block BOOL success = YES;
-    for (Note * note in notes) {
-        NSString * oldId = note.noteId;
-        if ( [oldId rangeOfString: @"x-coredata"].location == 0)
-            request = [[AFJSONRequestSerializer serializer] requestWithMethod: @"POST" URLString: @"http://notes.illi-studio.ru/apzzz/notes" parameters: [self prepareToSendNote: note] error: nil];
-        else
-            request = [[AFJSONRequestSerializer serializer] requestWithMethod: @"PUT" URLString: [NSString stringWithFormat: @"http://notes.illi-studio.ru/apzzz/notes/%@", oldId] parameters: [self prepareToSendNote: note] error: nil];
-        
-        dispatch_group_enter(group);
-        dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-            if (error && error.code != 3840) {
-                NSLog(@"Error: %@", error);
-                success = NO;
-            }
-            else {
-                NSHTTPURLResponse * resp = (NSHTTPURLResponse *) response;
-                NSString * location = [[resp allHeaderFields] objectForKey: @"Location"];
-                NSRange range = [location rangeOfString: @"/" options: NSBackwardsSearch];
-                location = [location substringFromIndex: range.location + 1];
-                NSString * oldId = note.noteId;
-                if (nil != location) {
-                    note.noteId = location;
-                    [self.dataCtrl updateNoteWithId: oldId withNote: note];
-                }
-                NSLog(@"%@ %@", location, responseObject);
-            }
-            dispatch_group_leave(group);
-        }];
-        [dataTask resume];
-    }
-    
-    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-        UIAlertController * alertCtrl = [UIAlertController alertControllerWithTitle: @"Успешно отправлено" message: @"" preferredStyle: UIAlertControllerStyleAlert];
-        if (!success)
-            alertCtrl.title = @"Ошибка при отправке";
-        
-        UIAlertAction * cancelAction = [UIAlertAction
-                                        actionWithTitle:NSLocalizedString(@"Закрыть", @"Close")
-                                        style:UIAlertActionStyleCancel
-                                        handler:^(UIAlertAction *action) {
-                                        }];
-        [alertCtrl addAction: cancelAction];
-        [self.navigationController presentViewController: alertCtrl animated: YES completion: nil];
-        [self.tableView reloadData];
-    });
+    [self.notesService sendNotesToServer: [self.dataCtrl selectNotes]];
 }
 
 -(void) loadFromServer {
-    NSURLSessionConfiguration * configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager * manager = [[AFURLSessionManager alloc] initWithSessionConfiguration: configuration];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    NSURLRequest * request = [[AFJSONRequestSerializer serializer] requestWithMethod: @"GET" URLString: [NotesTableViewController serverURLString] parameters: [[NSDictionary alloc] initWithObjects: @[[NSString stringWithFormat: @"{\"userName\":\"%@\"}", [[NSUserDefaults standardUserDefaults] objectForKey: @"userName"] ]] forKeys: @[@"query"]] error: nil];
-    NSURLSessionDataTask * dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            NSLog(@"Error while getting notes");
-        }
-        else {
-            NSArray * resp = (NSArray *) responseObject;
-            for (NSDictionary * dictNote in resp) {
-                if (![self.dataCtrl selectNoteById: [dictNote objectForKey: @"_id"]]) {
-                    Note * note = [[Note alloc] init];
-                    note.noteId = [dictNote objectForKey: @"_id"];
-                    //note.rowId = [dictNote objectForKey: @"rowId"];
-                    note.title = [dictNote objectForKey: @"title"];
-                    note.text = [dictNote objectForKey: @"text"];
-                    note.colorR = [dictNote objectForKey: @"colorR"];
-                    note.colorB = [dictNote objectForKey: @"colorB"];
-                    note.colorG = [dictNote objectForKey: @"colorG"];
-                    [self.dataCtrl addNoteWithExistedId: note];
-                }
-            }
-            [self.tableView reloadData];
-        }
-    }];
-    [dataTask resume];
+    [self.notesService loadNotesFromServer];
 }
 
 -(NSDictionary *) prepareToSendNote: (Note *) note {
