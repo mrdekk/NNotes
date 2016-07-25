@@ -12,6 +12,7 @@
 @protocol NotesDisplayer <NSObject>
 
 -(void) notifyThatNotesAreSentSuccessfully: (BOOL) success;
+-(void) notifyThatNotesWereNotLoaded;
 -(void) addNotesToList: (NSArray *) loadedNotes;
 -(void) updateNote: (Note *) note withId: (NSString *) noteId;
 

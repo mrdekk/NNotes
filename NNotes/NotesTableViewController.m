@@ -122,6 +122,17 @@
     [self.dataCtrl updateNoteWithId: noteId withNote: note];
 }
 
+-(void) notifyThatNotesWereNotLoaded {
+    UIAlertController * alertCtrl = [UIAlertController alertControllerWithTitle: @"Не удалось загрузить заметки" message: @"" preferredStyle: UIAlertControllerStyleAlert];
+    UIAlertAction * okAction = [UIAlertAction
+                                    actionWithTitle:NSLocalizedString(@"OK", @"OK")
+                                    style:UIAlertActionStyleCancel
+                                    handler:^(UIAlertAction *action) {
+                                    }];
+    [alertCtrl addAction: okAction];
+    [self.navigationController presentViewController: alertCtrl animated: YES completion: nil];
+}
+
 #pragma mark - Table view data source
 - (IBAction)changeToReorderMode:(id)sender {
     __weak typeof(self) weakSelf = self;

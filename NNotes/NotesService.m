@@ -94,6 +94,7 @@
     NSURLSessionDataTask * dataTask = [self.manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             NSLog(@"Error while getting notes");
+            [self.notesDisplayerDelegate notifyThatNotesWereNotLoaded];
         }
         else {
             NSArray * resp = (NSArray *) responseObject;
