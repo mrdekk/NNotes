@@ -10,10 +10,12 @@
 
 #import "NotesDataController.h"
 #import "Note.h"
+#import "NotesService.h"
 
 @interface NotesTableViewController : UITableViewController
 
 @property (nonatomic, strong) NotesDataController * dataCtrl;
+@property (nonatomic, strong) NotesService * notesService;
 @property (nonatomic, assign) BOOL needUpdateAll;
 @property (nonatomic, strong) NSMutableArray * cellsToUpdate;
 

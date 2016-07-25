@@ -2,7 +2,7 @@
 //  DbNote+CoreDataProperties.m
 //  NNotes
 //
-//  Created by Olga Vyrostko on 21.07.16.
+//  Created by Olga Vyrostko on 25.07.16.
 //  Copyright © 2016 Ольга Выростко. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,9 +16,8 @@
 @dynamic colorB;
 @dynamic colorG;
 @dynamic colorR;
+@dynamic noteId;
 @dynamic text;
 @dynamic title;
-@dynamic noteId;
-@dynamic rowId;
 
 @end

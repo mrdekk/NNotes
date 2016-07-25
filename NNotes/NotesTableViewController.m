@@ -6,11 +6,14 @@
 //  Copyright © 2016 Ольга Выростко. All rights reserved.
 //
 
+#import "AFNetworking.h"
+
 #import "NotesTableViewController.h"
 #import "ViewController.h"
+#import "NotesService.h"
 #import "NotesListCell.h"
 
-@interface NotesTableViewController() <UpdatableNotesTable>
+@interface NotesTableViewController() <UpdatableNotesTable, NotesDisplayer>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *reorderModeButton;
 
 @end
@@ -20,9 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Создаем новый NotesdataCtrl для манипуляций с БД
-    self.dataCtrl = [[NotesDataController alloc] init];
-    
     // Конфигурируем tableView для автоматического определения высоты ячейки
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = [NotesTableViewController estimatedRowHeight];
@@ -30,6 +30,23 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
+    
+    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+    if (![userDefaults objectForKey: @"userName"]) {
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle: @"Аутентификация" message: @"Введите имя пользователя" preferredStyle: UIAlertControllerStyleAlert];
+        
+        [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.placeholder = @"User name";
+        }];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * action) {
+                                                       NSLog(@"OK %@", [[alert.textFields objectAtIndex: 0] text]);
+                                                       [userDefaults setObject: [[alert.textFields objectAtIndex: 0] text] forKey: @"userName"];
+                                                       
+                                                   }];
+        [alert addAction: ok];
+        [self.navigationController presentViewController: alert animated: YES completion: nil];
+    }
     
     if (self.needUpdateAll) {
         [self.tableView reloadData];
@@ -58,17 +75,106 @@
     return _cellsToUpdate;
 }
 
+-(NotesDataController *) dataCtrl {
+    if (!_dataCtrl)
+        _dataCtrl = [[NotesDataController alloc] init];
+    return _dataCtrl;
+}
+
+-(NotesService *) notesService {
+    if (!_notesService) {
+        _notesService = [[NotesService alloc] init];
+        _notesService.notesDisplayerDelegate = self;
+    }
+    return _notesService;
+}
+
 #pragma mark - Methods of protocol UpdatableNotesTable
 -(void) markCellAsRequiringUpdate:(NSIndexPath *)pathToCell {
     [self.cellsToUpdate addObject: pathToCell];
 }
 
+#pragma mark - Methods of protocol NotesDisplayer
+-(void) notifyThatNotesAreSentSuccessfully: (BOOL) success {
+    UIAlertController * alertCtrl = [UIAlertController alertControllerWithTitle: @"Успешно отправлено" message: @"" preferredStyle: UIAlertControllerStyleAlert];
+    if (!success)
+        alertCtrl.title = @"Ошибка при отправке";
+    
+    UIAlertAction * cancelAction = [UIAlertAction
+                                    actionWithTitle:NSLocalizedString(@"Закрыть", @"Close")
+                                    style:UIAlertActionStyleCancel
+                                    handler:^(UIAlertAction *action) {
+                                    }];
+    [alertCtrl addAction: cancelAction];
+    [self.navigationController presentViewController: alertCtrl animated: YES completion: nil];
+    [self.tableView reloadData];
+}
+
+-(void) addNotesToList: (NSArray *) loadedNotes {
+    for (Note * note in loadedNotes) {
+        if (![self.dataCtrl selectNoteById: note.noteId])
+            [self.dataCtrl addNoteWithExistedId: note];
+    }
+    [self.tableView reloadData];
+}
+
+-(void) updateNote: (Note *) note withId: (NSString *) noteId {
+    [self.dataCtrl updateNoteWithId: noteId withNote: note];
+}
+
+-(void) notifyThatNotesWereNotLoaded {
+    UIAlertController * alertCtrl = [UIAlertController alertControllerWithTitle: @"Не удалось загрузить заметки" message: @"" preferredStyle: UIAlertControllerStyleAlert];
+    UIAlertAction * okAction = [UIAlertAction
+                                    actionWithTitle:NSLocalizedString(@"OK", @"OK")
+                                    style:UIAlertActionStyleCancel
+                                    handler:^(UIAlertAction *action) {
+                                    }];
+    [alertCtrl addAction: okAction];
+    [self.navigationController presentViewController: alertCtrl animated: YES completion: nil];
+}
+
 #pragma mark - Table view data source
 - (IBAction)changeToReorderMode:(id)sender {
-    if (self.isEditing)
+    __weak typeof(self) weakSelf = self;
+    if (!self.isEditing) {
+        UIAlertController * actionSheet = [UIAlertController alertControllerWithTitle: @"Действия" message: @"" preferredStyle: UIAlertControllerStyleActionSheet];
+        UIAlertAction * cancelAction = [UIAlertAction
+                                       actionWithTitle:NSLocalizedString(@"Закрыть", @"Close")
+                                       style:UIAlertActionStyleCancel
+                                       handler:^(UIAlertAction *action) {
+                                       }];
+        UIAlertAction * reorderAction = [UIAlertAction
+                                        actionWithTitle:NSLocalizedString(@"↑↓ Перемешать", @"↑↓ Reorder")
+                                        style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction *action) {
+                                            if (weakSelf.isEditing)
+                                                [weakSelf endEditing];
+                                            else
+                                                [weakSelf startEditing];
+                                        }];
+        UIAlertAction * sendAction = [UIAlertAction
+                                      actionWithTitle:NSLocalizedString(@"⇡ Отправить на сервер", @"⇡ Send to server")
+                                      style:UIAlertActionStyleDefault
+                                      handler:^(UIAlertAction * action) {
+                                          [weakSelf sendToServer];
+                                      }];
+        UIAlertAction * pullAction = [UIAlertAction
+                                      actionWithTitle:NSLocalizedString(@"⇣ Загрузить с сервера", @"⇣ Load from server")
+                                      style:UIAlertActionStyleDefault
+                                      handler:^(UIAlertAction * action) {
+                                          [weakSelf loadFromServer];
+                                      }];
+        
+        
+        [actionSheet addAction: cancelAction];
+        [actionSheet addAction: reorderAction];
+        [actionSheet addAction: sendAction];
+        [actionSheet addAction: pullAction];
+        [self presentViewController: actionSheet animated: YES completion: nil];
+    }
+    else {
         [self endEditing];
-    else
-        [self startEditing];
+    }
 }
 
 -(void) startEditing {
@@ -78,7 +184,27 @@
 
 -(void) endEditing {
     [self setEditing: NO animated: NO];
-    self.reorderModeButton.title = @"Reorder";
+    self.reorderModeButton.title = @"✎";
+}
+
+-(void) sendToServer {
+    [self.notesService sendNotesToServer: [self.dataCtrl selectNotes]];
+}
+
+-(void) loadFromServer {
+    [self.notesService loadNotesFromServer];
+}
+
+-(NSDictionary *) prepareToSendNote: (Note *) note {
+    NSMutableDictionary * dictNote = [[NSMutableDictionary alloc] init];
+    [dictNote setValue: note.noteId forKey: @"noteId"];
+    [dictNote setValue: note.title forKey: @"title"];
+    [dictNote setValue: note.text forKey: @"text"];
+    [dictNote setValue: note.colorR forKey: @"colorR"];
+    [dictNote setValue: note.colorG forKey: @"colorG"];
+    [dictNote setValue: note.colorB forKey: @"colorB"];
+    [dictNote setValue: [[NSUserDefaults standardUserDefaults] objectForKey: @"userName"] forKey: @"userName"];
+    return [NSDictionary dictionaryWithDictionary: dictNote];
 }
 
 - (NSInteger)numberOfSectionsInTableView: (UITableView *)tableView {
@@ -93,7 +219,7 @@
     NotesListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotesListCell" forIndexPath:indexPath];
     
     // Запрашиваем следующую по порядку заметку
-    Note * note = [self.dataCtrl selectNoteByIndex: indexPath.row ];
+    Note * note = [self.dataCtrl selectNoteByIndex: indexPath.row];
     UIColor * clr = [[UIColor alloc] initWithRed: [note.colorR doubleValue] green: [note.colorG doubleValue] blue: [note.colorB doubleValue] alpha: [[[NSNumber alloc] initWithDouble: 1] doubleValue]];
     
     // И конфигурируем ячейку в соответствии с полученными данными
