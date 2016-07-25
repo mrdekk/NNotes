@@ -7,8 +7,14 @@
 //
 
 #import "NotesService.h"
-#import "AFNetworking.h"
 #import "Note.h"
+#import "AFNetworking.h"
+
+@interface NotesService()
+
+@property (nonatomic, strong) AFURLSessionManager * manager;
+
+@end
 
 @implementation NotesService
 
@@ -20,11 +26,16 @@
     return [NSString stringWithFormat: @"%@/%@", [NotesService serverUrl], noteId];
 }
 
+-(AFURLSessionManager *) manager {
+    if (!_manager) {
+        NSURLSessionConfiguration * configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        _manager = [[AFURLSessionManager alloc] initWithSessionConfiguration: configuration];
+        _manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions: NSJSONReadingAllowFragments];
+    }
+    return _manager;
+}
+
 -(void) sendNotesToServer: (NSArray *) notes {
-    NSURLSessionConfiguration * configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager * manager = [[AFURLSessionManager alloc] initWithSessionConfiguration: configuration];
-    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions: NSJSONReadingAllowFragments];
-    
     dispatch_group_t group = dispatch_group_create();
     
     NSURLRequest * request;
@@ -38,7 +49,7 @@
             request = [[AFJSONRequestSerializer serializer] requestWithMethod: @"PUT" URLString: [NotesService serverUrlTemplateWithId: oldId] parameters: [self prepareToSendNote: note] error: nil];
         
         dispatch_group_enter(group);
-        dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        dataTask = [self.manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
             if (error && error.code != 3840) {
                 NSLog(@"Error: %@", error);
                 success = NO;
@@ -78,13 +89,9 @@
 }
 
 -(void) loadNotesFromServer {
-    NSURLSessionConfiguration * configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager * manager = [[AFURLSessionManager alloc] initWithSessionConfiguration: configuration];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    
     NSMutableArray * gotNotes = [[NSMutableArray alloc] init];
     NSURLRequest * request = [[AFJSONRequestSerializer serializer] requestWithMethod: @"GET" URLString: [NotesService serverUrl] parameters: [[NSDictionary alloc] initWithObjects: @[[NSString stringWithFormat: @"{\"userName\":\"%@\"}", [[NSUserDefaults standardUserDefaults] objectForKey: @"userName"] ]] forKeys: @[@"query"]] error: nil];
-    NSURLSessionDataTask * dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+    NSURLSessionDataTask * dataTask = [self.manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             NSLog(@"Error while getting notes");
         }

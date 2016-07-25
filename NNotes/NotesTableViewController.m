@@ -67,10 +67,6 @@
     return 44.0;
 }
 
-+(NSString *) serverURLString {
-    return @"http://notes.illi-studio.ru/apzzz/notes";
-}
-
 #pragma mark - Custom Setters and Gettes
 -(NSMutableArray *) cellsToUpdate {
     if (nil == _cellsToUpdate)
