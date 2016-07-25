@@ -1,0 +1,27 @@
+
+/* Class = "UITextView"; text = "Текст заметки"; ObjectID = "GpG-UK-k30"; */
+"GpG-UK-k30.text" = "Текст заметки";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "MoJ-mM-51U"; */
+"MoJ-mM-51U.text" = "Description";
+
+/* Class = "UIBarButtonItem"; title = "✎"; ObjectID = "OWu-yX-qEG"; */
+"OWu-yX-qEG.title" = "✎";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "UOr-T4-rJD"; */
+"UOr-T4-rJD.title" = "Title";
+
+/* Class = "UINavigationItem"; title = "Журнал заметок"; ObjectID = "Yt1-V6-Hqq"; */
+"Yt1-V6-Hqq.title" = "Журнал заметок";
+
+/* Class = "UITextView"; text = "Заголовок"; ObjectID = "bG1-g0-L0I"; */
+"bG1-g0-L0I.text" = "Заголовок";
+
+/* Class = "UIBarButtonItem"; title = "✔︎"; ObjectID = "bHB-mw-Tvn"; */
+"bHB-mw-Tvn.title" = "✔︎";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "cXl-l8-dZR"; */
+"cXl-l8-dZR.title" = " ";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "tjh-ei-RjP"; */
+"tjh-ei-RjP.text" = "Title";

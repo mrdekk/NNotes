@@ -33,10 +33,10 @@
     
     NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
     if (![userDefaults objectForKey: @"userName"]) {
-        UIAlertController * alert = [UIAlertController alertControllerWithTitle: @"Аутентификация" message: @"Введите имя пользователя" preferredStyle: UIAlertControllerStyleAlert];
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle: NSLocalizedString(@"Authentification", "Auth title") message: NSLocalizedString(@"Write down user's name", @"Title for typing user's name") preferredStyle: UIAlertControllerStyleAlert];
         
         [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-            textField.placeholder = @"User name";
+            textField.placeholder = NSLocalizedString(@"User name", @"User's name title");
         }];
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                    handler:^(UIAlertAction * action) {
@@ -96,12 +96,12 @@
 
 #pragma mark - Methods of protocol NotesDisplayer
 -(void) notifyThatNotesAreSentSuccessfully: (BOOL) success {
-    UIAlertController * alertCtrl = [UIAlertController alertControllerWithTitle: @"Успешно отправлено" message: @"" preferredStyle: UIAlertControllerStyleAlert];
+    UIAlertController * alertCtrl = [UIAlertController alertControllerWithTitle: NSLocalizedString(@"Successfully sent", @"Successfully sent title") message: @"" preferredStyle: UIAlertControllerStyleAlert];
     if (!success)
-        alertCtrl.title = @"Ошибка при отправке";
+        alertCtrl.title = NSLocalizedString(@"Mistakes while sending", @"Mistakes while sending title");
     
     UIAlertAction * cancelAction = [UIAlertAction
-                                    actionWithTitle:NSLocalizedString(@"Закрыть", @"Close")
+                                    actionWithTitle:NSLocalizedString(@"Close", @"Close title")
                                     style:UIAlertActionStyleCancel
                                     handler:^(UIAlertAction *action) {
                                     }];
@@ -123,7 +123,7 @@
 }
 
 -(void) notifyThatNotesWereNotLoaded {
-    UIAlertController * alertCtrl = [UIAlertController alertControllerWithTitle: @"Не удалось загрузить заметки" message: @"" preferredStyle: UIAlertControllerStyleAlert];
+    UIAlertController * alertCtrl = [UIAlertController alertControllerWithTitle: NSLocalizedString(@"Notes could not be loaded", @"Notes could not be loaded title") message: @"" preferredStyle: UIAlertControllerStyleAlert];
     UIAlertAction * okAction = [UIAlertAction
                                     actionWithTitle:NSLocalizedString(@"OK", @"OK")
                                     style:UIAlertActionStyleCancel
@@ -137,14 +137,14 @@
 - (IBAction)changeToReorderMode:(id)sender {
     __weak typeof(self) weakSelf = self;
     if (!self.isEditing) {
-        UIAlertController * actionSheet = [UIAlertController alertControllerWithTitle: @"Действия" message: @"" preferredStyle: UIAlertControllerStyleActionSheet];
+        UIAlertController * actionSheet = [UIAlertController alertControllerWithTitle: NSLocalizedString(@"Actions", @"Actions title") message: @"" preferredStyle: UIAlertControllerStyleActionSheet];
         UIAlertAction * cancelAction = [UIAlertAction
-                                       actionWithTitle:NSLocalizedString(@"Закрыть", @"Close")
+                                       actionWithTitle:NSLocalizedString(@"Close", @"Close title")
                                        style:UIAlertActionStyleCancel
                                        handler:^(UIAlertAction *action) {
                                        }];
         UIAlertAction * reorderAction = [UIAlertAction
-                                        actionWithTitle:NSLocalizedString(@"↑↓ Перемешать", @"↑↓ Reorder")
+                                        actionWithTitle:NSLocalizedString(@"↑↓ Reorder", @"Reorder title")
                                         style:UIAlertActionStyleDefault
                                         handler:^(UIAlertAction *action) {
                                             if (weakSelf.isEditing)
@@ -153,13 +153,13 @@
                                                 [weakSelf startEditing];
                                         }];
         UIAlertAction * sendAction = [UIAlertAction
-                                      actionWithTitle:NSLocalizedString(@"⇡ Отправить на сервер", @"⇡ Send to server")
+                                      actionWithTitle:NSLocalizedString(@"⇡ Send to server", @"Send to server title")
                                       style:UIAlertActionStyleDefault
                                       handler:^(UIAlertAction * action) {
                                           [weakSelf sendToServer];
                                       }];
         UIAlertAction * pullAction = [UIAlertAction
-                                      actionWithTitle:NSLocalizedString(@"⇣ Загрузить с сервера", @"⇣ Load from server")
+                                      actionWithTitle:NSLocalizedString(@"⇣ Load from server", @"Load from server title")
                                       style:UIAlertActionStyleDefault
                                       handler:^(UIAlertAction * action) {
                                           [weakSelf loadFromServer];
@@ -179,7 +179,7 @@
 
 -(void) startEditing {
     [self setEditing: YES animated: YES];
-    self.reorderModeButton.title = @"Done";
+    self.reorderModeButton.title = NSLocalizedString(@"Done", @"Done title");
 }
 
 -(void) endEditing {
@@ -232,7 +232,7 @@
 
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     __weak typeof(self) weakSelf = self;
-    UITableViewRowAction *editButton = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"✎\nРедактировать" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+    UITableViewRowAction *editButton = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title: NSLocalizedString(@"✎\nEdit", @"Edit button title") handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
         UIStoryboard * sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         ViewController * detailedCtrl = [sb instantiateViewControllerWithIdentifier: @"detailedView" ];
         detailedCtrl.notesListDelegate = weakSelf;
@@ -247,7 +247,7 @@
     
     editButton.backgroundColor = [UIColor grayColor];
     
-    UITableViewRowAction *deleteButton = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"✕\nУдалить" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+    UITableViewRowAction *deleteButton = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title: NSLocalizedString(@"✕\nRemove", @"Remove button title") handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
         [weakSelf.dataCtrl removeNoteByIndex: indexPath.row];
         [weakSelf.tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
     }];

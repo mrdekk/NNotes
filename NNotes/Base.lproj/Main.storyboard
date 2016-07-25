@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AsU-vR-lXu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AsU-vR-lXu">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Журнал заметок-->
+        <!--Notes list-->
         <scene sceneID="00F-fR-VHW">
             <objects>
                 <tableViewController storyboardIdentifier="NotesTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lB8-0g-Ra1" customClass="NotesTableViewController" sceneMemberID="viewController">
@@ -62,7 +62,7 @@
                             <outlet property="delegate" destination="lB8-0g-Ra1" id="6Ru-1B-n95"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Журнал заметок" id="Yt1-V6-Hqq">
+                    <navigationItem key="navigationItem" title="Notes list" id="Yt1-V6-Hqq">
                         <barButtonItem key="backBarButtonItem" title=" " id="cXl-l8-dZR"/>
                         <barButtonItem key="leftBarButtonItem" title="✎" id="OWu-yX-qEG">
                             <connections>
@@ -110,7 +110,7 @@
                                     <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="qw2-Fu-Tok"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Заголовок" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bG1-g0-L0I">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Title" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bG1-g0-L0I">
                                 <rect key="frame" x="0.0" y="64" width="484" height="99"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -172,7 +172,7 @@
                                     <action selector="changeColor:" destination="WGN-CK-xml" eventType="touchUpInside" id="FPq-NM-iWs"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Текст заметки" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GpG-UK-k30">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Text" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GpG-UK-k30">
                                 <rect key="frame" x="0.0" y="173" width="484" height="427"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
