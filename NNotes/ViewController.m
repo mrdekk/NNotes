@@ -24,7 +24,7 @@
 }
 
 +(NSString *) defaultNavTitle {
-    return @"Новая";
+    return NSLocalizedString(@"New", @"Default title for note's creation");
 }
 
 -(void) viewWillAppear:(BOOL)animated {

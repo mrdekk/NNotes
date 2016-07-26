@@ -22,6 +22,7 @@
 		7D5427BB1D0D786B00002073 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D5427BA1D0D786B00002073 /* CoreData.framework */; };
 		7D5427BE1D0D79A600002073 /* NotesDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5427BD1D0D79A600002073 /* NotesDataController.m */; };
 		B888D966EA25F4A70A1EC518 /* libPods-NNotesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A59D0026F1E002AE48CBA3 /* libPods-NNotesTests.a */; };
+		C93EF4381D472009009E724C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C93EF4331D471F5F009E724C /* Localizable.strings */; };
 		C975D7491D4603C600009F10 /* DbNote+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C975D7461D4603C600009F10 /* DbNote+CoreDataProperties.m */; };
 		C975D74A1D4603C600009F10 /* DbNote.m in Sources */ = {isa = PBXBuildFile; fileRef = C975D7481D4603C600009F10 /* DbNote.m */; };
 		C975D74D1D46171C00009F10 /* NotesService.m in Sources */ = {isa = PBXBuildFile; fileRef = C975D74C1D46171C00009F10 /* NotesService.m */; };
@@ -78,12 +79,18 @@
 		9577E23AD2C2A87811BEF81A /* Pods-NNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNotes.release.xcconfig"; path = "Pods/Target Support Files/Pods-NNotes/Pods-NNotes.release.xcconfig"; sourceTree = "<group>"; };
 		A7B323C631A6D69D95E81A06 /* Pods-NNotesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNotesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NNotesUITests/Pods-NNotesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B420FFB06D57ACFCE3A8CA2D /* Pods-NNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNotes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NNotes/Pods-NNotes.debug.xcconfig"; sourceTree = "<group>"; };
+		C93EF42F1D471C8F009E724C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		C93EF4311D471D01009E724C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C93EF4341D471F5F009E724C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = NNotes/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C93EF4361D471F76009E724C /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "NNotes/ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		C975D7451D4603C600009F10 /* DbNote+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DbNote+CoreDataProperties.h"; sourceTree = "<group>"; };
 		C975D7461D4603C600009F10 /* DbNote+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DbNote+CoreDataProperties.m"; sourceTree = "<group>"; };
 		C975D7471D4603C600009F10 /* DbNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DbNote.h; sourceTree = "<group>"; };
 		C975D7481D4603C600009F10 /* DbNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DbNote.m; sourceTree = "<group>"; };
 		C975D74B1D46171C00009F10 /* NotesService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesService.h; sourceTree = "<group>"; };
 		C975D74C1D46171C00009F10 /* NotesService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesService.m; sourceTree = "<group>"; };
+		C975D74F1D4660C100009F10 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Main.strings"; sourceTree = "<group>"; };
+		C975D7501D4660C100009F10 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		C9EB2BF61D3FA61000724F8F /* NotesListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesListCell.h; sourceTree = "<group>"; };
 		C9EB2BF71D3FA61000724F8F /* NotesListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesListCell.m; sourceTree = "<group>"; };
 		CC00F48A1EE54848ADB27CA3 /* libPods-NNotes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NNotes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +129,7 @@
 		7D54275A1D0D5D4600002073 = {
 			isa = PBXGroup;
 			children = (
+				C93EF4331D471F5F009E724C /* Localizable.strings */,
 				7D5427BA1D0D786B00002073 /* CoreData.framework */,
 				7D5427651D0D5D4600002073 /* NNotes */,
 				7D54277F1D0D5D4600002073 /* NNotesTests */,
@@ -315,6 +323,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"ru-RU",
 			);
 			mainGroup = 7D54275A1D0D5D4600002073;
 			productRefGroup = 7D5427641D0D5D4600002073 /* Products */;
@@ -333,6 +342,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C93EF4381D472009009E724C /* Localizable.strings in Resources */,
 				7D5427761D0D5D4600002073 /* LaunchScreen.storyboard in Resources */,
 				7D5427731D0D5D4600002073 /* Assets.xcassets in Resources */,
 				7D5427711D0D5D4600002073 /* Main.storyboard in Resources */,
@@ -533,6 +543,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				7D5427701D0D5D4600002073 /* Base */,
+				C975D74F1D4660C100009F10 /* ru-RU */,
+				C93EF42F1D471C8F009E724C /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -541,8 +553,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				7D5427751D0D5D4600002073 /* Base */,
+				C975D7501D4660C100009F10 /* ru-RU */,
+				C93EF4311D471D01009E724C /* en */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C93EF4331D471F5F009E724C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C93EF4341D471F5F009E724C /* en */,
+				C93EF4361D471F76009E724C /* ru-RU */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
